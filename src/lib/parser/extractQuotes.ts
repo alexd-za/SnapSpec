@@ -12,9 +12,9 @@ export function extractQuotes(text: string): ParsedQuote[] {
       const quote = match[1].trim()
       if (seen.has(quote.toLowerCase())) continue
       seen.add(quote.toLowerCase())
-      // Explanation: text after the quote on the same line, if present.
-      const line = nonEmptyLines(text).find((l) => l.includes(match[1]))
-      const after = line?.split(match[1])[1]?.replace(/^["”']\s*[-–—:]?\s*/, '').trim()
+      // Explanation: text after the *quoted* form on the same line, if present.
+      const line = nonEmptyLines(text).find((l) => l.includes(match[0]))
+      const after = line?.split(match[0])[1]?.replace(/^\s*[-–—:]\s*/, '').trim()
       quotes.push({
         quote,
         explanation: after && after.length > 12 ? after : undefined,
