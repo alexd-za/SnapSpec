@@ -53,12 +53,12 @@ export function TemplateCard({
           {suggested ? (
             <span className="specimen-label border-accent text-accent">suggested</span>
           ) : index !== undefined ? (
-            `Plate ${String(index + 1).padStart(2, '0')}`
+            `plate ${String(index + 1).padStart(2, '0')}`
           ) : null}
         </span>
       </div>
       <h3 className="font-serif text-xl leading-snug">{template.name}</h3>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+      <p className="annotation mt-1 text-sm text-accent!">
         {template.tagline}
       </p>
       <p className="mt-2 text-xs leading-relaxed text-ink/70">{template.description}</p>

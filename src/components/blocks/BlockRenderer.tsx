@@ -7,9 +7,14 @@ import { AlertTriangle, CheckCircle2, GraduationCap, Info, Lightbulb } from 'luc
 function SectionTitle({ title }: { title?: string }) {
   if (!title) return null
   return (
-    <h2 className="mb-4 flex items-baseline gap-3 border-b border-ink/15 pb-2 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
-      <span className="inline-block h-[5px] w-6 self-center bg-accent" aria-hidden />
-      {title}
+    <h2 className="mb-4 flex items-baseline justify-between gap-3 border-b border-ink/15 pb-1.5">
+      <span
+        className="font-serif text-lg italic text-accent"
+        style={{ fontVariationSettings: "'opsz' 18, 'SOFT' 60" }}
+      >
+        {title.toLowerCase()}
+      </span>
+      <span className="inline-block h-[3px] w-8 self-center bg-accent/60" aria-hidden />
     </h2>
   )
 }
@@ -29,7 +34,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
       return (
         <header className="py-2">
           {block.eyebrow && (
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="annotation mb-2 text-base text-accent!">
               {block.eyebrow}
             </p>
           )}
