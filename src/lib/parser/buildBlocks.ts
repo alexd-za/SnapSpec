@@ -158,8 +158,10 @@ export function generateConceptMap(title: string, terms: string[]): DiagramBlock
   }
 }
 
-function block<T extends SnapBlock>(b: Omit<T, 'id'>): T {
-  return { ...b, id: createId('block') } as T
+type WithoutId<T> = T extends SnapBlock ? Omit<T, 'id'> : never
+
+function block<T extends SnapBlock>(b: WithoutId<T>): T {
+  return { ...b, id: createId('block') } as unknown as T
 }
 
 function calloutFor(template: SnapTemplate): CalloutBlock {

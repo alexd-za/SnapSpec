@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./scripts/check-assets.ts","./scripts/compress-svgz.ts","./scripts/generate-assets.ts","./playwright.config.ts"],"version":"5.6.3"}
