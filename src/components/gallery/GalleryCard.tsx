@@ -14,7 +14,7 @@ type GalleryCardProps = {
   onDelete: (project: SnapProject) => void
 }
 
-/** Gallery entry: a Snap rendered as a small field-guide card. */
+/** A pressed specimen: one saved Snap as a numbered field-journal card. */
 export function GalleryCard({ project, index, onQuickExport, onDelete }: GalleryCardProps) {
   const animate = useMotionPref()
   const palette = PALETTES[project.accent]
@@ -23,47 +23,50 @@ export function GalleryCard({ project, index, onQuickExport, onDelete }: Gallery
       initial={animate ? { opacity: 0, y: 16 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.5) }}
-      whileHover={animate ? { y: -4 } : undefined}
-      className="paper-grain flex flex-col rounded-2xl border border-mist/20 bg-surface p-5 transition-colors hover:border-accent/40"
+      whileHover={animate ? { y: -3 } : undefined}
+      className="paper-grain flex flex-col rounded-md border border-ink/15 bg-surface p-5 transition-colors hover:border-ink/40"
     >
-      <div className="mb-3 flex items-center justify-between">
-        <span
-          className="inline-block h-4 w-4 rounded-full border border-black/20"
-          style={{ background: `linear-gradient(135deg, ${palette.bg} 50%, ${palette.accent} 50%)` }}
-          title={`${palette.name} palette`}
-          aria-label={`${palette.name} palette`}
-          role="img"
-        />
-        <span className="rounded-full border border-mist/25 px-2.5 py-0.5 text-[11px] text-mist">
+      <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-mist">
+        <span>No. {String(index + 1).padStart(3, '0')}</span>
+        <span className="flex items-center gap-2">
           {templateMeta(project.template).name}
+          <span
+            className="inline-block h-3.5 w-3.5 rounded-full border border-ink/30"
+            style={{
+              background: `linear-gradient(135deg, ${palette.bg} 50%, ${palette.accent} 50%)`,
+            }}
+            title={`${palette.name} palette`}
+            aria-label={`${palette.name} palette`}
+            role="img"
+          />
         </span>
       </div>
 
       <Link to={`/editor/${project.id}`} className="group flex-1">
-        <h3 className="font-serif text-lg leading-snug group-hover:text-accent">{project.title}</h3>
-        <p className="mt-1.5 text-xs text-mist">
+        <h3 className="font-serif text-xl leading-snug group-hover:text-accent">{project.title}</h3>
+        <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-mist">
           {project.blocks.length} blocks · {formatDate(project.updatedAt)}
           {project.exports.length > 0 && ` · ${project.exports.length} exports`}
         </p>
       </Link>
 
-      <div className="mt-4 flex items-center gap-1.5 border-t border-mist/15 pt-3">
+      <div className="mt-4 flex items-center gap-1.5 border-t border-ink/10 pt-3">
         <Link
           to={`/editor/${project.id}`}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-accent/15 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent/25"
+          className="inline-flex items-center gap-1.5 rounded-sm border border-ink/25 bg-bg/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
         >
-          <PencilLine size={13} aria-hidden /> Open editor
+          <PencilLine size={12} aria-hidden /> Open editor
         </Link>
         <button
           onClick={() => onQuickExport(project)}
-          className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs text-mist transition-colors hover:bg-mist/10 hover:text-ink"
+          className="inline-flex cursor-pointer items-center gap-1.5 rounded-sm px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-mist transition-colors hover:text-ink"
         >
-          <Download size={13} aria-hidden /> Quick export
+          <Download size={12} aria-hidden /> Export
         </button>
         <button
           onClick={() => onDelete(project)}
           aria-label={`Delete ${project.title}`}
-          className="ml-auto cursor-pointer rounded-lg p-1.5 text-mist transition-colors hover:bg-red-400/15 hover:text-red-400"
+          className="ml-auto cursor-pointer rounded-sm p-1.5 text-mist transition-colors hover:bg-red-700/10 hover:text-red-700"
         >
           <Trash2 size={13} aria-hidden />
         </button>

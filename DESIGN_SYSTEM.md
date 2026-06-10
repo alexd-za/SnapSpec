@@ -1,47 +1,45 @@
-# Design system
+# Design system — botanical field journal
 
-A calm forest notebook crossed with a premium web app. Modern, clean, useful — never childish or fantasy-themed.
+Ink on paper. SpecSnap is styled as a naturalist's field journal: ruled paper, hairline ink rules, mono specimen labels, stamp-pressed buttons, characterful serif display. Deliberately not the generic AI look (no centered glow-hero, no pill badges, no purple gradients, no uniform rounded cards).
 
 ## Palettes
 
-Switched via `data-accent` on `<html>`; components consume tokens only.
+Three papers and two night plates, switched via `data-accent` on `<html>`. Components consume tokens only.
 
-| Theme                | bg        | surface   | text      | muted     | accent    | Notes                                                                           |
-| -------------------- | --------- | --------- | --------- | --------- | --------- | ------------------------------------------------------------------------------- |
-| **Forest** (default) | `#141b16` | `#1c2620` | `#f2eee3` | `#93a596` | `#5dbb6e` | deep charcoal green / warm ivory / fern                                         |
-| Mist                 | `#f2f4f2` | `#ffffff` | `#26333b` | `#7d8a8d` | `#3a7ca5` | off-white mist / deep slate / river blue                                        |
-| Sunlit               | `#f6efdf` | `#fdf8ec` | `#4a3826` | `#a39272` | `#b97d12` | parchment / bark brown / honey amber (accent darkened for contrast on light bg) |
-| River                | `#131c24` | `#18242f` | `#e8eef2` | `#8298a6` | `#4ecbd9` | blue slate / pale mist / glacial cyan                                           |
-| Bloom                | `#211a20` | `#2c2329` | `#f3ece9` | `#a18d96` | `#b07fd9` | plum-brown / clay / wildflower violet                                           |
+| Theme                | bg        | surface   | text      | muted     | accent    | Reads as                      |
+| -------------------- | --------- | --------- | --------- | --------- | --------- | ----------------------------- |
+| **Forest** (default) | `#eee9da` | `#f7f4e9` | `#243024` | `#6e7a68` | `#3c7a47` | deep green ink on warm paper  |
+| Mist                 | `#eef0ef` | `#fafbfa` | `#26333b` | `#74838a` | `#34688c` | slate ink on cool fog paper   |
+| Sunlit               | `#f3e9d2` | `#faf4e3` | `#46351f` | `#97865f` | `#a86c0c` | bark ink on amber parchment   |
+| River                | `#15202a` | `#1b2934` | `#e8eef2` | `#8298a6` | `#56c8d5` | night plate, glacial cyan ink |
+| Bloom                | `#231b22` | `#2e242b` | `#f3ece9` | `#a18d96` | `#c08fe2` | night plate, wildflower ink   |
 
-Tailwind tokens: `bg`, `surface`, `ink` (text), `mist` (muted), `accent` — mapped from `--sn-*` CSS variables in `globals.css`. **Never hard-code hex in components.**
+Tailwind tokens: `bg`, `surface`, `ink` (text), `mist` (muted), `accent` — mapped from `--sn-*` CSS variables in `globals.css` and mirrored in `src/lib/model/palettes.ts` (exports/posters/Remotion read from there — keep both in sync). **Never hard-code hex in components.**
 
-## Typography
+## Typography (self-hosted via @fontsource — no CDN)
 
-- Display/serif: Iowan Old Style → Palatino → Georgia stack (`font-serif`). Used for h1/h2 display, summaries, quotes, theses.
-- UI/sans: system-ui stack (`font-sans`). Used for navigation, labels, metadata, buttons.
-- Mono: system monospace for formulas, file names, format badges.
-- Scale: hero `text-4xl–6xl`, page titles `text-3xl`, section labels `text-xs uppercase tracking-[0.14em]` in accent.
+- **Display: Fraunces Variable** (`font-serif`) with `opsz 72, SOFT 30` — headlines, block headings, summaries, quotes. The hero's accent word goes _italic_ with extra SOFT.
+- **UI body: Public Sans Variable** (`font-sans`) — controls, descriptions, block body text.
+- **Labels: IBM Plex Mono** (`font-mono`) — overlines, nav, specimen labels, metadata, format lists. Always uppercase with `tracking-[0.12em–0.22em]` at 9–11px.
 
-## Spacing & shape
+## Spatial language
 
-4px grid. Panels `rounded-2xl`, inputs/cards `rounded-xl`, chips `rounded-full`. Page gutter `px-4`, max width `max-w-6xl` (app) / `max-w-2xl–4xl` (content pages). Section rhythm `py-10`.
+- **Asymmetry over centering.** The hero is a 7/5 editorial grid: headline left, live "specimen" demo card offset right with a slight 0.6° rotation and a pinned `specimen-label`.
+- **Rows over card grids** where content is sequential — "The method" is numbered full-width rows (ghost serif numerals `01 02 03`) divided by hairlines.
+- **Hairlines, not shadows-and-glow.** Sections separate with `.ink-rule` (1px ink line + a short accent tick). Cards are `rounded-md` with `border-ink/15`.
+- 4px grid; page gutter `px-4`; app width `max-w-6xl`.
 
-## Motifs (one per view, restrained)
+## Atmosphere
 
-- **Topographic contours + faint grid** — `TopographicGrid`, fixed app backdrop.
-- **Leaf-vein divider** — `LeafVeinDivider` between homepage sections.
-- **Paper grain** — `.paper-grain` overlay on `MossPanel` surfaces (3.5% opacity noise).
-- **Soft light gradients** — two radial accent washes in `NatureBackground`.
-- **Branch connectors** — curved quadratic edges in `DiagramCanvas` and ConceptMapBloom.
-- **Glassy panels** — `MossPanel glass` (blur + translucency) for sticky chrome.
+- `.ruled-paper` — faint 32px notebook rules behind everything, plus a single accent margin line on the left (the journal's red line).
+- `.paper-grain` — 5% noise on `MossPanel` surfaces.
+- Topographic contours remain in generated assets and diagrams; branch-curve edges in `DiagramCanvas`/ConceptMapBloom.
 
-Forbidden: purple AI gradients, particle spam, childish clipart, organic blobs without restraint, low-contrast text.
+## Components
 
-## Component rules
-
-- Surfaces are `MossPanel`; never raw divs with ad-hoc borders.
-- Buttons via `Button` (primary/ghost/outline/danger × sm/md/lg); every interactive element has hover, `:focus-visible` ring (global, accent-colored), and disabled states.
-- Icon-only controls require `aria-label`. Decorative SVGs are `aria-hidden`.
-- Every list view has a designed empty state (seedling illustration, one CTA).
-- Body text contrast ≥ 4.5:1 in all five palettes; check Sunlit first — it's the tightest.
+- **Buttons** are stamps: `.stamp` = square-ish corners, 1px ink border, hard `3px 3px 0` offset shadow; hover lifts to 4px, press flattens to 1px. Primary = accent fill with `text-surface`; outline = paper fill. No glows.
+- **Specimen labels** (`.specimen-label`): bordered mono micro-tags pinned to card corners ("Specimen 001", "Plate 04", "suggested").
+- Surfaces are `MossPanel`; section headings use the mono overline + accent tick (`SectionTitle` in BlockRenderer).
+- Nav is masthead-style: serif wordmark + mono small-caps links, active link underlined in accent — no pill backgrounds.
+- Icon-only controls require `aria-label`; decorative SVGs `aria-hidden`; every list view has a designed empty state.
+- Body contrast ≥ 4.5:1 in all five palettes (accents were darkened on the papers for this).

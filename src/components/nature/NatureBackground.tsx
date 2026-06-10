@@ -1,17 +1,19 @@
-import { TopographicGrid } from './TopographicGrid'
-
-/** Fixed ambient backdrop: soft light gradient + contour lines. */
+/**
+ * Fixed paper backdrop: faint notebook rules and a left margin line —
+ * a field journal page, not a glow gradient.
+ */
 export function NatureBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+      <div className="ruled-paper absolute inset-0 opacity-60" />
+      {/* the journal's red margin line, inked in the accent colour */}
       <div
-        className="absolute inset-0"
+        className="absolute bottom-0 top-0 hidden w-px lg:block"
         style={{
-          background:
-            'radial-gradient(1200px 600px at 70% -10%, color-mix(in srgb, var(--sn-accent) 8%, transparent), transparent 70%), radial-gradient(900px 500px at 10% 110%, color-mix(in srgb, var(--sn-accent) 5%, transparent), transparent 70%)',
+          left: 'max(1rem, calc(50% - 36rem))',
+          background: 'color-mix(in srgb, var(--sn-accent) 35%, transparent)',
         }}
       />
-      <TopographicGrid />
     </div>
   )
 }

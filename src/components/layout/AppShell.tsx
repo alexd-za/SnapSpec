@@ -1,17 +1,16 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Images, Plus, Settings, FileOutput, Home } from 'lucide-react'
 import { LogoMark } from '../ui/LogoMark'
 import { NatureBackground } from '../nature/NatureBackground'
 import { IntroSequence } from '../motion/IntroSequence'
 import { useMotionPref } from '../../lib/hooks/useMotionPref'
 
 const NAV = [
-  { to: '/', label: 'Home', icon: Home, end: true },
-  { to: '/new', label: 'New Snap', icon: Plus },
-  { to: '/gallery', label: 'Gallery', icon: Images },
-  { to: '/exports', label: 'Exports', icon: FileOutput },
-  { to: '/settings', label: 'Settings', icon: Settings },
+  { to: '/', label: 'Home', end: true },
+  { to: '/new', label: 'New Snap' },
+  { to: '/gallery', label: 'Gallery' },
+  { to: '/exports', label: 'Exports' },
+  { to: '/settings', label: 'Settings' },
 ]
 
 export function AppShell() {
@@ -23,34 +22,37 @@ export function AppShell() {
       <NatureBackground />
       <IntroSequence />
 
-      <header className="sticky top-0 z-40 border-b border-mist/15 bg-bg/80 backdrop-blur-md">
+      {/* Masthead: journal-style double rule with mono nav */}
+      <header className="sticky top-0 z-40 border-b border-ink/20 bg-bg/90 backdrop-blur-sm">
         <nav
-          className="mx-auto flex max-w-6xl items-center gap-1 px-4 py-3"
+          className="mx-auto flex max-w-6xl items-baseline gap-1 px-4 pb-2.5 pt-3"
           aria-label="Main navigation"
         >
-          <NavLink to="/" className="mr-4 flex items-center gap-2.5" aria-label="SpecSnap home">
-            <LogoMark size={26} />
+          <NavLink to="/" className="mr-auto flex items-center gap-2" aria-label="SpecSnap home">
+            <LogoMark size={22} />
             <span className="font-serif text-lg font-semibold tracking-tight">SpecSnap</span>
+            <span className="mb-0.5 hidden self-end font-mono text-[9px] uppercase tracking-[0.2em] text-mist md:inline">
+              field guide for messy notes
+            </span>
           </NavLink>
-          <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
-            {NAV.map(({ to, label, icon: Icon, end }) => (
-              <NavLink
-                key={to}
-                to={to}
-                end={end}
-                className={({ isActive }) =>
-                  `flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm transition-colors sm:px-3 ${
-                    isActive ? 'bg-accent/15 text-accent' : 'text-mist hover:bg-mist/10 hover:text-ink'
-                  }`
-                }
-              >
-                <Icon size={16} aria-hidden="true" />
-                <span className="hidden sm:inline">{label}</span>
-                <span className="sr-only sm:hidden">{label}</span>
-              </NavLink>
-            ))}
-          </div>
+          {NAV.map(({ to, label, end }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={end}
+              className={({ isActive }) =>
+                `px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors sm:px-2.5 ${
+                  isActive
+                    ? 'text-accent underline decoration-2 underline-offset-[6px]'
+                    : 'text-mist hover:text-ink'
+                }`
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
         </nav>
+        <div className="h-px bg-ink/10" />
       </header>
 
       <main className="mx-auto max-w-6xl px-4 pb-20 pt-8">
@@ -67,7 +69,7 @@ export function AppShell() {
         </AnimatePresence>
       </main>
 
-      <footer className="border-t border-mist/10 py-6 text-center text-xs text-mist">
+      <footer className="border-t border-ink/15 py-6 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
         SpecSnap · local-first · your notes never leave this device
       </footer>
     </div>

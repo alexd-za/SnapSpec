@@ -6,18 +6,18 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'sm' | 'md' | 'lg'
 }
 
+/* Stamp-style buttons: hard offset ink shadow, square corners, no glow. */
 const VARIANTS = {
-  primary:
-    'bg-accent text-bg font-semibold hover:brightness-110 active:brightness-95 shadow-[0_2px_16px_-4px_var(--sn-accent)]',
-  ghost: 'text-ink hover:bg-mist/10',
-  outline: 'border border-mist/30 text-ink hover:border-accent/60 hover:text-accent',
-  danger: 'border border-red-400/40 text-red-300 hover:bg-red-400/10',
+  primary: 'stamp bg-accent text-surface font-semibold',
+  ghost: 'text-ink hover:bg-ink/8',
+  outline: 'stamp bg-surface text-ink',
+  danger: 'border border-red-700/50 text-red-700 hover:bg-red-700/10',
 }
 
 const SIZES = {
-  sm: 'px-3 py-1.5 text-sm rounded-lg gap-1.5',
-  md: 'px-4 py-2 text-sm rounded-xl gap-2',
-  lg: 'px-6 py-3 text-base rounded-xl gap-2',
+  sm: 'px-3 py-1.5 text-xs gap-1.5',
+  md: 'px-4 py-2 text-sm gap-2',
+  lg: 'px-6 py-3 text-base gap-2',
 }
 
 export function Button({
@@ -32,7 +32,7 @@ export function Button({
     <button
       type={type}
       {...rest}
-      className={`inline-flex cursor-pointer items-center justify-center transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
+      className={`inline-flex cursor-pointer items-center justify-center rounded-sm transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
     >
       {children}
     </button>

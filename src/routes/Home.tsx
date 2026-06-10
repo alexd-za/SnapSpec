@@ -1,32 +1,31 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Leaf, Lock, FileOutput, Wand2 } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import type { SnapTemplate } from '../lib/model/types'
 import { TEMPLATES } from '../lib/model/templates'
 import { PALETTES, ACCENT_THEMES } from '../lib/model/palettes'
 import { useSnapStore } from '../lib/storage/store'
 import { Reveal } from '../components/motion/Reveal'
-import { LeafVeinDivider } from '../components/nature/LeafVeinDivider'
 import { TemplateCard } from '../components/gallery/TemplateCard'
 import { SnapPreview } from '../components/gallery/SnapPreview'
 
-const EXPORT_BADGES = ['HTML', 'Markdown', 'JSON', 'SVG', 'SVGZ', 'PNG', 'Video']
+const EXPORTS_LINE = 'HTML · Markdown · JSON · SVG · SVGZ · PNG · Video'
 
 const STEPS = [
   {
-    icon: Leaf,
+    n: '01',
     title: 'Paste anything',
-    body: 'Class notes, a poem, maths working, a product idea — messy is fine.',
+    body: 'Class notes, a poem, maths working, a product idea. Messy is the expected input — that is the point.',
   },
   {
-    icon: Wand2,
-    title: 'SpecSnap structures it',
-    body: 'A deterministic local parser finds the title, summary, definitions, formulas, and quotes. No AI API, no upload.',
+    n: '02',
+    title: 'The parser does fieldwork',
+    body: 'A deterministic local parser identifies the title, summary, definitions, formulas, quotes, and timelines. No AI API. Nothing leaves your device.',
   },
   {
-    icon: FileOutput,
-    title: 'Edit & export',
-    body: 'Refine each block, switch palettes, then export HTML, Markdown, JSON, SVG, or a full revision pack.',
+    n: '03',
+    title: 'Edit, press, export',
+    body: 'Refine every block in the editor, switch the ink palette, then press the page to HTML, Markdown, JSON, SVG — or a full revision pack.',
   },
 ]
 
@@ -36,172 +35,197 @@ export function Home() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="py-10 text-center sm:py-16">
-        <Reveal>
-          <p className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs text-accent">
-            <Lock size={12} aria-hidden /> Local-first · no accounts · no cloud
-          </p>
-          <h1 className="mx-auto max-w-3xl font-serif text-4xl leading-tight tracking-tight sm:text-6xl">
-            Turn messy notes into beautiful{' '}
-            <span className="text-accent">living explainers</span>.
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-mist sm:text-lg">
-            Paste notes. Pick a template. Edit the page. Export everything.
-          </p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/new"
-              className="inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-bg shadow-[0_4px_24px_-6px_var(--sn-accent)] transition-all hover:brightness-110"
-            >
-              Create Snap <ArrowRight size={18} aria-hidden />
-            </Link>
-            <Link
-              to="/gallery"
-              className="rounded-xl border border-mist/30 px-6 py-3.5 text-base text-ink transition-colors hover:border-accent/60 hover:text-accent"
-            >
-              Browse Gallery
-            </Link>
-          </div>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {EXPORT_BADGES.map((b) => (
-              <span
-                key={b}
-                className="rounded-full border border-mist/25 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-mist"
+      {/* Masthead hero — asymmetric, left-aligned, journal cover */}
+      <section className="grid gap-10 py-10 lg:grid-cols-12 lg:gap-8 lg:py-16">
+        <div className="lg:col-span-7">
+          <Reveal>
+            <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-ink/20 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mist">
+              <span>Field guide · Vol. 01</span>
+              <span aria-hidden>—</span>
+              <span className="text-accent">Local-first · no accounts · no cloud</span>
+            </p>
+            <h1 className="font-serif text-5xl leading-[1.02] tracking-tight sm:text-7xl">
+              Turn messy notes into{' '}
+              <em className="text-accent" style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 60" }}>
+                living explainers
+              </em>
+              .
+            </h1>
+            <p className="mt-6 max-w-md font-serif text-lg leading-relaxed text-ink/85">
+              Paste notes. Pick a template. Edit the page. Export everything.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <Link
+                to="/new"
+                className="stamp inline-flex items-center gap-2 rounded-sm bg-accent px-7 py-3 text-base font-semibold text-surface"
               >
-                {b}
+                Create Snap <ArrowRight size={17} aria-hidden />
+              </Link>
+              <Link
+                to="/gallery"
+                className="font-mono text-xs uppercase tracking-[0.16em] text-ink underline decoration-ink/30 underline-offset-4 hover:text-accent hover:decoration-accent"
+              >
+                Browse the gallery
+              </Link>
+            </div>
+            <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
+              Exports — {EXPORTS_LINE}
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Specimen card: the live demo, pinned slightly off-axis */}
+        <div className="lg:col-span-5">
+          <Reveal delay={0.2}>
+            <div className="relative lg:rotate-[0.6deg]">
+              <span className="specimen-label absolute -top-2.5 left-5 z-10 text-mist">
+                Specimen 001 · parsed live
               </span>
-            ))}
-          </div>
-        </Reveal>
-      </section>
-
-      <LeafVeinDivider />
-
-      {/* Live demo */}
-      <section className="py-10" aria-labelledby="demo-heading">
-        <Reveal>
-          <h2 id="demo-heading" className="text-center font-serif text-2xl sm:text-3xl">
-            Watch a page grow from raw notes
-          </h2>
-          <p className="mt-2 text-center text-sm text-mist">
-            A real sample, parsed live in your browser. Pick a flavour:
-          </p>
-        </Reveal>
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
-          {TEMPLATES.slice(0, 3).map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setDemoTemplate(t.id)}
-              aria-pressed={demoTemplate === t.id}
-              className={`cursor-pointer rounded-full px-4 py-1.5 text-sm transition-colors ${
-                demoTemplate === t.id
-                  ? 'bg-accent text-bg font-medium'
-                  : 'border border-mist/30 text-mist hover:text-ink'
-              }`}
+              <SnapPreview template={demoTemplate} maxBlocks={3} />
+            </div>
+            <div
+              className="mt-4 flex flex-wrap gap-x-4 gap-y-1"
+              role="group"
+              aria-label="Demo template"
             >
-              {t.name}
-            </button>
-          ))}
-        </div>
-        <div className="mx-auto mt-6 max-w-2xl">
-          <SnapPreview template={demoTemplate} />
+              {TEMPLATES.slice(0, 3).map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => setDemoTemplate(t.id)}
+                  aria-pressed={demoTemplate === t.id}
+                  className={`cursor-pointer font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                    demoTemplate === t.id
+                      ? 'text-accent underline decoration-2 underline-offset-4'
+                      : 'text-mist hover:text-ink'
+                  }`}
+                >
+                  {t.name}
+                </button>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <LeafVeinDivider />
+      <div className="ink-rule" role="presentation" />
 
-      {/* How it works */}
-      <section className="py-10" aria-labelledby="how-heading">
+      {/* Process — numbered editorial rows, not icon cards */}
+      <section className="py-12" aria-labelledby="how-heading">
         <Reveal>
-          <h2 id="how-heading" className="text-center font-serif text-2xl sm:text-3xl">
-            How it works
+          <h2
+            id="how-heading"
+            className="font-mono text-[11px] uppercase tracking-[0.22em] text-mist"
+          >
+            The method
           </h2>
         </Reveal>
-        <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-3">
+        <div className="mt-6 divide-y divide-ink/10">
           {STEPS.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.1}>
-              <div className="paper-grain h-full rounded-2xl border border-mist/20 bg-surface p-5">
-                <span className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent">
-                  <step.icon size={20} aria-hidden />
+            <Reveal key={step.n} delay={i * 0.08}>
+              <div className="grid gap-2 py-7 sm:grid-cols-12 sm:gap-6">
+                <span
+                  className="font-serif text-5xl text-accent/35 sm:col-span-2 sm:text-6xl"
+                  aria-hidden
+                >
+                  {step.n}
                 </span>
-                <h3 className="font-serif text-lg">{step.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-mist">{step.body}</p>
+                <h3 className="font-serif text-2xl sm:col-span-4">{step.title}</h3>
+                <p className="max-w-md text-sm leading-relaxed text-ink/75 sm:col-span-6">
+                  {step.body}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <LeafVeinDivider />
+      <div className="ink-rule" role="presentation" />
 
-      {/* Templates */}
-      <section className="py-10" aria-labelledby="templates-heading">
+      {/* Templates — the index */}
+      <section className="py-12" aria-labelledby="templates-heading">
         <Reveal>
-          <h2 id="templates-heading" className="text-center font-serif text-2xl sm:text-3xl">
-            Six templates, one calm system
-          </h2>
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 id="templates-heading" className="font-serif text-3xl">
+              Six templates, one quiet system
+            </h2>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
+              Index of plates
+            </span>
+          </div>
         </Reveal>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {TEMPLATES.map((t) => (
-            <TemplateCard key={t.id} template={t} />
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {TEMPLATES.map((t, i) => (
+            <TemplateCard key={t.id} template={t} index={i} />
           ))}
         </div>
       </section>
 
-      <LeafVeinDivider />
+      <div className="ink-rule" role="presentation" />
 
-      {/* Palettes */}
-      <section className="py-10 text-center" aria-labelledby="palettes-heading">
+      {/* Palettes — ink swatches */}
+      <section className="py-12" aria-labelledby="palettes-heading">
         <Reveal>
-          <h2 id="palettes-heading" className="font-serif text-2xl sm:text-3xl">
-            Five palettes from the field guide
+          <h2 id="palettes-heading" className="font-serif text-3xl">
+            Five inks
           </h2>
-          <p className="mt-2 text-sm text-mist">Click one to re-tint the whole app.</p>
+          <p className="mt-1.5 text-sm text-ink/70">
+            Pick one to re-ink the whole journal. Three papers, two night plates.
+          </p>
         </Reveal>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          {ACCENT_THEMES.map((theme) => {
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
+          {ACCENT_THEMES.map((theme, i) => {
             const p = PALETTES[theme]
             return (
               <button
                 key={theme}
                 onClick={() => setSettings({ defaultAccent: theme })}
-                className="group cursor-pointer rounded-2xl border border-mist/20 p-3 transition-colors hover:border-accent/50"
+                className="group cursor-pointer text-left"
                 aria-label={`Switch to ${p.name} palette`}
               >
-                <span
-                  className="block h-16 w-24 rounded-xl border border-black/20 transition-transform group-hover:scale-105"
-                  style={{
-                    background: `linear-gradient(160deg, ${p.bg} 55%, ${p.surface} 55%, ${p.surface} 80%, ${p.accent} 80%)`,
-                  }}
-                />
-                <span className="mt-2 block text-xs font-medium">{p.name}</span>
+                <span className="flex items-center gap-2.5">
+                  <span
+                    className="inline-block h-9 w-9 rounded-full border border-ink/30 transition-transform group-hover:scale-110"
+                    style={{ background: `linear-gradient(135deg, ${p.bg} 50%, ${p.accent} 50%)` }}
+                  />
+                  <span>
+                    <span className="block font-serif text-base leading-tight">{p.name}</span>
+                    <span className="block font-mono text-[9px] uppercase tracking-[0.14em] text-mist">
+                      No. {i + 1} · {p.dark ? 'night plate' : 'paper'}
+                    </span>
+                  </span>
+                </span>
               </button>
             )
           })}
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-14 text-center">
-        <Reveal>
-          <img src="/generated/svg/35-local-first.svg" alt="" className="mx-auto mb-5 h-24 w-24" />
-          <h2 className="font-serif text-2xl sm:text-3xl">Your notes never leave this device.</h2>
-          <p className="mx-auto mt-2 max-w-md text-sm text-mist">
-            Everything is parsed, stored, and exported locally. Delete the site data and it's gone —
-            that's the deal.
-          </p>
-          <Link
-            to="/new"
-            className="mt-7 inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-bg shadow-[0_4px_24px_-6px_var(--sn-accent)] transition-all hover:brightness-110"
-          >
-            Create your first Snap <ArrowRight size={18} aria-hidden />
-          </Link>
-        </Reveal>
+      <div className="ink-rule" role="presentation" />
+
+      {/* Closing plate */}
+      <section className="grid items-center gap-8 py-14 sm:grid-cols-12">
+        <img
+          src="/generated/svg/35-local-first.svg"
+          alt=""
+          className="mx-auto h-28 w-28 sm:col-span-3 sm:h-32 sm:w-32"
+        />
+        <div className="sm:col-span-9">
+          <Reveal>
+            <h2 className="font-serif text-3xl sm:text-4xl">Your notes never leave this device.</h2>
+            <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink/75">
+              Everything is parsed, stored, and exported locally. Delete the site data and it's gone
+              — that's the deal.
+            </p>
+            <Link
+              to="/new"
+              className="stamp mt-7 inline-flex items-center gap-2 rounded-sm bg-accent px-7 py-3 text-base font-semibold text-surface"
+            >
+              Create your first Snap <ArrowRight size={17} aria-hidden />
+            </Link>
+          </Reveal>
+        </div>
       </section>
     </div>
   )

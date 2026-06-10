@@ -2,18 +2,13 @@ import type { SnapBlock } from '../../lib/model/types'
 import { DiagramCanvas } from './DiagramCanvas'
 import { FlashcardDeck } from './FlashcardDeck'
 import { QuizView } from './QuizView'
-import {
-  AlertTriangle,
-  CheckCircle2,
-  GraduationCap,
-  Info,
-  Lightbulb,
-} from 'lucide-react'
+import { AlertTriangle, CheckCircle2, GraduationCap, Info, Lightbulb } from 'lucide-react'
 
 function SectionTitle({ title }: { title?: string }) {
   if (!title) return null
   return (
-    <h2 className="mb-4 border-b border-accent/25 pb-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+    <h2 className="mb-4 flex items-baseline gap-3 border-b border-ink/15 pb-2 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+      <span className="inline-block h-[5px] w-6 self-center bg-accent" aria-hidden />
       {title}
     </h2>
   )
@@ -74,7 +69,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
           <SectionTitle title={block.title ?? 'Definitions'} />
           <dl className="grid gap-3 sm:grid-cols-2">
             {block.terms.map((t, i) => (
-              <div key={i} className="rounded-xl border border-mist/20 bg-bg/50 p-4">
+              <div key={i} className="rounded-md border border-ink/15 bg-bg/50 p-4">
                 <dt className="text-sm font-semibold text-accent">{t.term}</dt>
                 <dd className="mt-1 text-sm text-ink/90">{t.definition}</dd>
               </div>
@@ -89,7 +84,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
           <SectionTitle title={block.title ?? 'Formulas'} />
           <div className="space-y-3">
             {block.formulas.map((f, i) => (
-              <div key={i} className="rounded-xl border border-accent/30 bg-bg/50 p-4">
+              <div key={i} className="rounded-md border border-ink/20 bg-bg/50 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">
                   {f.label}
                 </p>
@@ -177,7 +172,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
       return (
         <section>
           <SectionTitle title={block.title ?? 'Diagram'} />
-          <div className="rounded-xl border border-mist/20 bg-bg/40">
+          <div className="rounded-md border border-ink/15 bg-bg/40">
             <DiagramCanvas block={block} />
           </div>
         </section>
@@ -204,7 +199,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
         <section>
           <SectionTitle title={block.title ?? 'Essay outline'} />
           <div className="space-y-4 text-sm">
-            <p className="rounded-xl border border-accent/30 bg-accent/8 p-4 font-serif text-base italic">
+            <p className="rounded-md border-l-4 border border-ink/15 border-l-accent bg-accent/8 p-4 font-serif text-base italic">
               {block.thesis}
             </p>
             <ol className="space-y-2 pl-1">
@@ -236,7 +231,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
       const tone = TONE_STYLE[block.tone] ?? TONE_STYLE.info
       const Icon = tone.icon
       return (
-        <aside className="rounded-xl border border-accent/45 bg-accent/10 p-4">
+        <aside className="rounded-md border-l-4 border border-ink/15 border-l-accent bg-accent/10 p-4">
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
             <Icon size={14} aria-hidden />
             {block.title ?? tone.label}
@@ -248,7 +243,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
 
     case 'export-card':
       return (
-        <section className="rounded-xl border border-dashed border-mist/30 p-4">
+        <section className="rounded-md border border-dashed border-ink/25 p-4">
           <SectionTitle title={block.title ?? 'Export this Snap'} />
           <div className="flex flex-wrap gap-2">
             {block.formats.map((f) => (

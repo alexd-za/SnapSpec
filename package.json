@@ -27,6 +27,9 @@
     ]
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource-variable/public-sans": "^5.2.7",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
     "dexie": "^4.0.10",
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.469.0",
@@ -56,6 +59,7 @@
     "jsdom": "^25.0.1",
     "prettier": "^3.4.2",
     "remotion": "^4.0.230",
+    "shadcn": "^4.11.0",
     "svgo": "^3.3.2",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.19.2",

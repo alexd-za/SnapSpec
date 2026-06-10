@@ -1,53 +1,63 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/public-sans';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
 
 /* ---------------------------------------------------------------------------
-   SpecSnap nature design system.
+   SpecSnap — botanical field journal design system.
+   Ink on paper: light parchment default, hairline rules, stamp buttons.
    Five palettes switch via the data-accent attribute on <html>.
 --------------------------------------------------------------------------- */
 
 :root,
 [data-accent='forest'] {
-  --sn-bg: #141b16;
-  --sn-surface: #1c2620;
-  --sn-text: #f2eee3;
-  --sn-muted: #93a596;
-  --sn-accent: #5dbb6e;
-  color-scheme: dark;
+  /* Forest: deep green ink on warm paper (default) */
+  --sn-bg: #eee9da;
+  --sn-surface: #f7f4e9;
+  --sn-text: #243024;
+  --sn-muted: #6e7a68;
+  --sn-accent: #3c7a47;
+  color-scheme: light;
 }
 
 [data-accent='mist'] {
-  --sn-bg: #f2f4f2;
-  --sn-surface: #ffffff;
+  /* Mist: slate ink on cool fog paper */
+  --sn-bg: #eef0ef;
+  --sn-surface: #fafbfa;
   --sn-text: #26333b;
-  --sn-muted: #7d8a8d;
-  --sn-accent: #3a7ca5;
+  --sn-muted: #74838a;
+  --sn-accent: #34688c;
   color-scheme: light;
 }
 
 [data-accent='sunlit'] {
-  --sn-bg: #f6efdf;
-  --sn-surface: #fdf8ec;
-  --sn-text: #4a3826;
-  --sn-muted: #a39272;
-  --sn-accent: #b97d12;
+  /* Sunlit: bark ink on amber parchment */
+  --sn-bg: #f3e9d2;
+  --sn-surface: #faf4e3;
+  --sn-text: #46351f;
+  --sn-muted: #97865f;
+  --sn-accent: #a86c0c;
   color-scheme: light;
 }
 
 [data-accent='river'] {
-  --sn-bg: #131c24;
-  --sn-surface: #18242f;
+  /* River: pale mist ink on deep blue slate (dark) */
+  --sn-bg: #15202a;
+  --sn-surface: #1b2934;
   --sn-text: #e8eef2;
   --sn-muted: #8298a6;
-  --sn-accent: #4ecbd9;
+  --sn-accent: #56c8d5;
   color-scheme: dark;
 }
 
 [data-accent='bloom'] {
-  --sn-bg: #211a20;
-  --sn-surface: #2c2329;
+  /* Bloom: ivory ink on dark plum (dark) */
+  --sn-bg: #231b22;
+  --sn-surface: #2e242b;
   --sn-text: #f3ece9;
   --sn-muted: #a18d96;
-  --sn-accent: #b07fd9;
+  --sn-accent: #c08fe2;
   color-scheme: dark;
 }
 
@@ -57,10 +67,9 @@
   --color-ink: var(--sn-text);
   --color-mist: var(--sn-muted);
   --color-accent: var(--sn-accent);
-  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  --font-serif: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Public Sans Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
 }
 
 html {
@@ -71,20 +80,39 @@ html {
 body {
   @apply bg-bg text-ink font-sans antialiased;
   min-height: 100dvh;
+  font-size: 15px;
+}
+
+/* Fraunces: lean on its optical sizing + a touch of softness */
+.font-serif {
+  font-variation-settings:
+    'opsz' 72,
+    'SOFT' 30;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--sn-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--sn-accent) 30%, transparent);
 }
 
-/* Accessible focus rings everywhere. */
 :focus-visible {
   outline: 2px solid var(--sn-accent);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
-/* Paper grain — a barely-there texture over surfaces. */
+/* --- Paper atmosphere ----------------------------------------------------- */
+
+/* Ruled-paper backdrop: faint horizontal rules like a field notebook. */
+.ruled-paper {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    color-mix(in srgb, var(--sn-text) 5%, transparent) 31px,
+    color-mix(in srgb, var(--sn-text) 5%, transparent) 32px
+  );
+}
+
+/* Paper grain — barely-there noise on surfaces. */
 .paper-grain {
   position: relative;
 }
@@ -94,16 +122,61 @@ body {
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  opacity: 0.035;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Skeleton shimmer — flowing light across moss panels. */
+/* Hairline rule with a small ink tick, used between editorial sections. */
+.ink-rule {
+  height: 1px;
+  background: color-mix(in srgb, var(--sn-text) 18%, transparent);
+  position: relative;
+}
+.ink-rule::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 32px;
+  height: 5px;
+  background: var(--sn-accent);
+}
+
+/* Stamp shadow: the hard offset that makes buttons feel inked, not glowing. */
+.stamp {
+  border: 1px solid var(--sn-text);
+  box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--sn-text) 85%, transparent);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+.stamp:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 0 color-mix(in srgb, var(--sn-text) 85%, transparent);
+}
+.stamp:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 color-mix(in srgb, var(--sn-text) 85%, transparent);
+}
+
+/* Specimen label: small mono tag pinned to a card corner. */
+.specimen-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid color-mix(in srgb, var(--sn-text) 35%, transparent);
+  background: var(--sn-surface);
+  padding: 3px 8px;
+}
+
+/* --- Loading & motion ------------------------------------------------------ */
+
 .skeleton {
   position: relative;
   overflow: hidden;
-  background: color-mix(in srgb, var(--sn-muted) 14%, var(--sn-surface));
-  border-radius: 10px;
+  background: color-mix(in srgb, var(--sn-muted) 16%, var(--sn-surface));
+  border-radius: 3px;
 }
 .skeleton::after {
   content: '';
@@ -113,7 +186,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--sn-accent) 9%, transparent),
+    color-mix(in srgb, var(--sn-accent) 10%, transparent),
     transparent
   );
   animation: shimmer 1.8s infinite;
@@ -124,7 +197,6 @@ body {
   }
 }
 
-/* Diagram edges draw themselves in. */
 .draw-line {
   stroke-dasharray: 400;
   stroke-dashoffset: 400;
@@ -136,7 +208,6 @@ body {
   }
 }
 
-/* Flashcard 3D flip. */
 .flip-scene {
   perspective: 1200px;
 }
@@ -173,7 +244,6 @@ body {
   transition-duration: 0.01ms !important;
 }
 
-/* Print: revision sheets should print on one clean page. */
 @media print {
   body {
     background: #fff;
