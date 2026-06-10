@@ -8,7 +8,13 @@ import { SkeletonBlock } from '../ui/Skeletons'
 import { MossPanel } from '../nature/MossPanel'
 
 /** Live miniature of a generated sample Snap — the homepage demo. */
-export function SnapPreview({ template, maxBlocks = 4 }: { template: SnapTemplate; maxBlocks?: number }) {
+export function SnapPreview({
+  template,
+  maxBlocks = 4,
+}: {
+  template: SnapTemplate
+  maxBlocks?: number
+}) {
   const [ready, setReady] = useState(false)
 
   const blocks = useMemo(
@@ -33,7 +39,7 @@ export function SnapPreview({ template, maxBlocks = 4 }: { template: SnapTemplat
         <div className="space-y-6">
           {blocks.map((block, i) => (
             <CascadeItem key={block.id} index={i}>
-              <BlockRenderer block={block} />
+              <BlockRenderer block={block} headingAs="h2" />
             </CascadeItem>
           ))}
         </div>

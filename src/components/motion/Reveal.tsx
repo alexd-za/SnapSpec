@@ -46,26 +46,32 @@ export function RevealInView({
   )
 }
 
-/** Headline words rising from behind a baseline, one after another. */
+/** Headline words rising from behind a baseline, one after another.
+    Screen readers and text queries get the plain string; the animated
+    copy is decorative. */
 export function WordRise({ text, delay = 0 }: { text: string; delay?: number }) {
   const animate = useMotionPref()
   if (!animate) return <span>{text}</span>
+  const words = text.split(' ')
   return (
-    <span aria-label={text} role="text">
-      {text.split(' ').map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom" aria-hidden>
-          <motion.span
-            className="inline-block"
-            initial={{ y: '110%' }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.7, delay: delay + i * 0.07, ease: [0.21, 0.65, 0.36, 1] }}
-          >
-            {word}
-          </motion.span>
-          {i < text.split(' ').length - 1 ? ' ' : ''}
-        </span>
-      ))}
-    </span>
+    <>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden>
+        {words.map((word, i) => (
+          <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+            <motion.span
+              className="inline-block"
+              initial={{ y: '110%' }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.7, delay: delay + i * 0.07, ease: [0.21, 0.65, 0.36, 1] }}
+            >
+              {word}
+            </motion.span>
+            {i < words.length - 1 ? ' ' : ''}
+          </span>
+        ))}
+      </span>
+    </>
   )
 }
 

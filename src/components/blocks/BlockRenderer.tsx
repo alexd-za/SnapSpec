@@ -27,23 +27,30 @@ const TONE_STYLE = {
   idea: { icon: Lightbulb, label: 'Idea' },
 }
 
+type BlockRendererProps = {
+  block: SnapBlock
+  /** Demote the heading block when the page is embedded (e.g. home demo)
+      so each document keeps a single h1. */
+  headingAs?: 'h1' | 'h2'
+}
+
 /** Renders any SnapBlock as a polished page section. */
-export function BlockRenderer({ block }: { block: SnapBlock }) {
+export function BlockRenderer({ block, headingAs = 'h1' }: BlockRendererProps) {
   switch (block.type) {
-    case 'heading':
+    case 'heading': {
+      const HeadingTag = headingAs
       return (
         <header className="py-2">
           {block.eyebrow && (
-            <p className="annotation mb-2 text-base text-accent!">
-              {block.eyebrow}
-            </p>
+            <p className="annotation mb-2 text-base text-accent!">{block.eyebrow}</p>
           )}
-          <h1 className="font-serif text-3xl leading-tight tracking-tight sm:text-4xl">
+          <HeadingTag className="font-serif text-3xl leading-tight tracking-tight sm:text-4xl">
             {block.heading}
-          </h1>
+          </HeadingTag>
           {block.subheading && <p className="mt-3 text-base text-mist">{block.subheading}</p>}
         </header>
       )
+    }
 
     case 'summary':
       return (
