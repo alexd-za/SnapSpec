@@ -1,0 +1,12 @@
+node_modules
+dist
+*.local
+.DS_Store
+playwright-report
+test-results
+coverage
+exports/*
+!exports/.gitkeep
+public/generated/video/*
+!public/generated/video/.gitkeep
+.remotion
