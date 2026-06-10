@@ -61,15 +61,11 @@ export function Exports() {
     <div data-testid="exports">
       <Reveal>
         <h1 className="font-serif text-3xl tracking-tight">Exports</h1>
-        <p className="mt-1 text-sm text-mist">
-          Everything you've exported, plus the generated asset pipeline.
-        </p>
+        <p className="annotation mt-1 text-base">the press room — everything you've pressed, plus the plates</p>
       </Reveal>
 
       <section className="mt-7" aria-labelledby="history-heading">
-        <h2 id="history-heading" className="mb-3 text-xs font-semibold uppercase tracking-wider text-mist">
-          Export history
-        </h2>
+        <h2 id="history-heading" className="annotation mb-3 text-lg">export history</h2>
         {loading ? (
           <SkeletonBlock lines={4} />
         ) : records.length === 0 ? (
@@ -113,16 +109,12 @@ export function Exports() {
       </section>
 
       <section className="mt-8" aria-labelledby="assets-heading">
-        <h2 id="assets-heading" className="mb-3 text-xs font-semibold uppercase tracking-wider text-mist">
-          Asset manifest — generated SVG / SVGZ
-        </h2>
+        <h2 id="assets-heading" className="annotation mb-3 text-lg">asset manifest — the 40 generated plates, svg &amp; svgz</h2>
         <AssetManifestPanel />
       </section>
 
       <section className="mt-8" aria-labelledby="video-heading">
-        <h2 id="video-heading" className="mb-3 text-xs font-semibold uppercase tracking-wider text-mist">
-          Video compositions (Remotion)
-        </h2>
+        <h2 id="video-heading" className="annotation mb-3 text-lg">video compositions, set with remotion</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {VIDEO_COMPOSITIONS.map((c) => (
             <MossPanel key={c.id} className="p-4">

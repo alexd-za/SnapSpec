@@ -84,14 +84,17 @@ export function IntroSequence() {
           ))}
         </svg>
 
-        <div className="h-10 text-center" aria-live="polite">
+        <div className="h-12 text-center" aria-live="polite">
           <AnimatePresence mode="wait">
             <motion.p
               key={phrase}
-              className="font-serif text-2xl text-ink"
-              initial={{ opacity: 0, y: 8 }}
+              className={`font-serif text-3xl ${phrase === PHRASES.length - 1 ? 'italic text-accent' : 'text-ink'}`}
+              style={
+                phrase === PHRASES.length - 1 ? { fontVariationSettings: "'SOFT' 80" } : undefined
+              }
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
             >
               {PHRASES[phrase]}
@@ -101,9 +104,9 @@ export function IntroSequence() {
 
         <button
           onClick={finish}
-          className="absolute bottom-8 rounded-lg px-4 py-2 text-sm text-mist transition-colors hover:text-ink"
+          className="annotation absolute bottom-8 cursor-pointer rounded-sm px-4 py-2 text-base underline decoration-accent/50 decoration-2 underline-offset-4 transition-colors hover:text-accent"
         >
-          Skip intro →
+          skip intro →
         </button>
       </motion.div>
     </AnimatePresence>

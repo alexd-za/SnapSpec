@@ -36,7 +36,11 @@ export function DiagramCanvas({ block }: { block: DiagramBlock }) {
         const isCore = i === 0
         const w = Math.max(64, node.label.length * 7.5 + 28)
         return (
-          <g key={node.id}>
+          <g
+            key={node.id}
+            className={animate ? 'node-pop' : undefined}
+            style={animate ? { animationDelay: `${0.15 + i * 0.12}s` } : undefined}
+          >
             <rect
               x={node.x - w / 2}
               y={node.y - 17}

@@ -90,9 +90,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
           <div className="space-y-3">
             {block.formulas.map((f, i) => (
               <div key={i} className="rounded-md border border-ink/20 bg-bg/50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  {f.label}
-                </p>
+                <p className="annotation text-base text-accent!">{f.label.toLowerCase()}</p>
                 <code className="mt-2 block overflow-x-auto rounded-lg bg-bg px-4 py-3 font-mono text-base">
                   {f.expression}
                 </code>
@@ -163,9 +161,7 @@ export function BlockRenderer({ block }: { block: SnapBlock }) {
                   className="absolute -left-[5px] top-1 h-2 w-2 rounded-full bg-accent"
                   aria-hidden
                 />
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  {e.label}
-                </p>
+                <p className="annotation text-[15px] text-accent!">{e.label}</p>
                 <p className="mt-0.5 text-sm">{e.detail}</p>
               </li>
             ))}

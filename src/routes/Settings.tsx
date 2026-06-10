@@ -31,15 +31,11 @@ export function Settings() {
     <div className="mx-auto max-w-2xl" data-testid="settings">
       <Reveal>
         <h1 className="font-serif text-3xl tracking-tight">Settings</h1>
-        <p className="mt-1 text-sm text-mist">
-          All preferences live on this device. There are no cloud settings.
-        </p>
+        <p className="annotation mt-1 text-base">the desk drawer — every preference lives on this device</p>
       </Reveal>
 
       <Reveal delay={0.05}>
-        <h2 className="mb-2 mt-8 text-xs font-semibold uppercase tracking-wider text-mist">
-          Appearance
-        </h2>
+        <h2 className="annotation mb-2 mt-8 text-lg">appearance</h2>
         <MossPanel className="divide-y divide-mist/10">
           <Row title="Theme palette" desc="The accent used across the app and as the default for new Snaps.">
             <AccentSwitcher
@@ -63,9 +59,7 @@ export function Settings() {
       </Reveal>
 
       <Reveal delay={0.1}>
-        <h2 className="mb-2 mt-8 text-xs font-semibold uppercase tracking-wider text-mist">
-          Defaults
-        </h2>
+        <h2 className="annotation mb-2 mt-8 text-lg">defaults</h2>
         <MossPanel className="divide-y divide-mist/10">
           <Row title="Default template" desc="Pre-selected when you open New Snap.">
             <select
@@ -90,9 +84,7 @@ export function Settings() {
       </Reveal>
 
       <Reveal delay={0.15}>
-        <h2 className="mb-2 mt-8 text-xs font-semibold uppercase tracking-wider text-mist">
-          Storage
-        </h2>
+        <h2 className="annotation mb-2 mt-8 text-lg">storage</h2>
         <MossPanel className="divide-y divide-mist/10">
           <Row
             title="Export storage"

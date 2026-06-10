@@ -110,9 +110,7 @@ export function Editor() {
 
       <div className="grid gap-5 lg:grid-cols-[230px_minmax(0,1fr)_280px]">
         <div className="order-2 lg:order-1">
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-mist">
-            Blocks
-          </p>
+          <p className="annotation mb-2 text-base">blocks</p>
           <BlockList
             blocks={project.blocks}
             selectedId={selectedId}
@@ -173,9 +171,7 @@ export function Editor() {
         </MossPanel>
 
         <div className="order-3">
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-mist">
-            Inspector
-          </p>
+          <p className="annotation mb-2 text-base">inspector</p>
           <MossPanel className="p-4">
             <BlockInspector
               block={selected}

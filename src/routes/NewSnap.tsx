@@ -79,15 +79,11 @@ export function NewSnap() {
     <div className="mx-auto max-w-4xl">
       <Reveal>
         <h1 className="font-serif text-3xl tracking-tight">New Snap</h1>
-        <p className="mt-1.5 text-sm text-mist">
-          Pick a template, paste your notes, and SpecSnap structures the page for you.
-        </p>
+        <p className="annotation mt-1.5 text-base">pick a template, paste your notes — the parser does the pressing</p>
       </Reveal>
 
       <Reveal delay={0.08}>
-        <h2 className="mb-3 mt-8 text-xs font-semibold uppercase tracking-wider text-mist">
-          1 · Template
-        </h2>
+        <h2 className="annotation mb-3 mt-8 text-lg">step one — choose a template</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" role="radiogroup" aria-label="Template">
           {TEMPLATES.map((t) => (
             <TemplateCard
@@ -102,9 +98,7 @@ export function NewSnap() {
       </Reveal>
 
       <Reveal delay={0.16}>
-        <h2 className="mb-3 mt-8 text-xs font-semibold uppercase tracking-wider text-mist">
-          2 · Content
-        </h2>
+        <h2 className="annotation mb-3 mt-8 text-lg">step two — feed it your notes</h2>
         <MossPanel className="p-4">
           <div className="mb-3 flex flex-wrap items-center gap-2">
             <Button variant="outline" size="sm" onClick={loadSample}>

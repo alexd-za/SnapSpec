@@ -37,13 +37,11 @@ export function Gallery() {
         <div className="mb-7 flex flex-wrap items-end justify-between gap-3">
           <div>
             <h1 className="font-serif text-3xl tracking-tight">Gallery</h1>
-            <p className="mt-1 text-sm text-mist">
-              Every Snap you've grown, stored locally on this device.
-            </p>
+            <p className="annotation mt-1 text-base">specimens collected so far — stored on this device only</p>
           </div>
           <Link
             to="/new"
-            className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-bg transition-all hover:brightness-110"
+            className="stamp inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-surface"
           >
             <Plus size={16} aria-hidden /> New Snap
           </Link>
@@ -57,7 +55,7 @@ export function Gallery() {
           ))}
         </div>
       ) : projects.length === 0 ? (
-        <div className="mx-auto max-w-md rounded-2xl border border-dashed border-mist/30 p-12 text-center">
+        <div className="mx-auto max-w-md rounded-md border border-dashed border-ink/30 p-12 text-center">
           <img src="/generated/svg/33-empty-gallery.svg" alt="" className="mx-auto mb-6 h-40 w-40" />
           <h2 className="font-serif text-xl">Nothing planted yet</h2>
           <p className="mt-2 text-sm text-mist">
@@ -65,7 +63,7 @@ export function Gallery() {
           </p>
           <Link
             to="/new"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-bg transition-all hover:brightness-110"
+            className="stamp mt-6 inline-flex items-center gap-2 rounded-sm bg-accent px-5 py-2.5 text-sm font-semibold text-surface"
           >
             <Plus size={15} aria-hidden /> Create your first Snap
           </Link>
