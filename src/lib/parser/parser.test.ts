@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import { detectTemplate } from './detectTemplate'
-import { extractTitle, extractSummary, buildBlocks, generateFlashcards, generateQuiz } from './buildBlocks'
+import {
+  extractTitle,
+  extractSummary,
+  buildBlocks,
+  generateFlashcards,
+  generateQuiz,
+} from './buildBlocks'
 import { extractDefinitions, extractKeyTerms } from './extractTerms'
 import { extractFormulas } from './extractFormulas'
 import { extractQuotes } from './extractQuotes'
@@ -39,6 +45,10 @@ describe('detectTemplate', () => {
 
   it('detects product briefs', () => {
     expect(detectTemplate(PRODUCT)).toBe('product-brief')
+  })
+
+  it('detects project showcases', () => {
+    expect(detectTemplate(SAMPLE_INPUTS['project-showcase'].text)).toBe('project-showcase')
   })
 
   it('detects revision cheat sheets', () => {
@@ -178,7 +188,10 @@ describe('parseSource', () => {
   })
 
   it('respects an explicit template', () => {
-    const result = parseSource({ type: 'paste', rawText: STUDY, importedAt: nowIso() }, 'revision-cheat-sheet')
+    const result = parseSource(
+      { type: 'paste', rawText: STUDY, importedAt: nowIso() },
+      'revision-cheat-sheet',
+    )
     expect(result.template).toBe('revision-cheat-sheet')
   })
 })

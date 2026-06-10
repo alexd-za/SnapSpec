@@ -1,6 +1,6 @@
 {
   "app": "specsnap",
-  "generatedAt": "2026-06-10T04:51:19.403Z",
+  "generatedAt": "2026-06-10T10:18:53.507Z",
   "count": 40,
   "assets": [
     {
@@ -37,7 +37,7 @@
       "svgPath": "public/generated/svg/04-sunlit-theme.svg",
       "svgzPath": "public/generated/svgz/04-sunlit-theme.svgz",
       "svgBytes": 1022,
-      "svgzBytes": 479
+      "svgzBytes": 478
     },
     {
       "file": "05-river-theme.svg",

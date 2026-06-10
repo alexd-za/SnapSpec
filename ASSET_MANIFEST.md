@@ -1,6 +1,6 @@
 # SpecSnap Asset Manifest
 
-Generated: 2026-06-10T04:51:19.403Z
+Generated: 2026-06-10T10:18:53.507Z
 Assets: 40 SVG + 40 SVGZ
 
 Every asset has `<title>`, `<desc>`, and `viewBox`, is SVGO-optimized, and is gzip-compressed to `.svgz`.
@@ -10,7 +10,7 @@ Every asset has `<title>`, `<desc>`, and `viewBox`, is SVGO-optimized, and is gz
 | 1 | `01-specsnap-logo.svg` | SpecSnap logo | 724 | 417 |
 | 2 | `02-forest-theme.svg` | Forest theme preview | 1020 | 471 |
 | 3 | `03-mist-theme.svg` | Mist theme preview | 1012 | 471 |
-| 4 | `04-sunlit-theme.svg` | Sunlit theme preview | 1022 | 479 |
+| 4 | `04-sunlit-theme.svg` | Sunlit theme preview | 1022 | 478 |
 | 5 | `05-river-theme.svg` | River theme preview | 1021 | 477 |
 | 6 | `06-bloom-theme.svg` | Bloom theme preview | 1020 | 474 |
 | 7 | `07-study-template.svg` | Study Notes template | 1760 | 512 |

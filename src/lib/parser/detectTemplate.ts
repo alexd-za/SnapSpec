@@ -13,7 +13,7 @@ const PRODUCT_KEYWORDS =
   /\b(?:problem|target users?|user persona|pain point|solution|features?|mvp|roadmap|launch|value prop(?:osition)?|monetis|monetiz|market|competitors?|alternatives?)\b/i
 
 const SHOWCASE_KEYWORDS =
-  /\b(?:tech stack|built with|github|deployed|portfolio|showcase|screenshots?|demo|repository|case study)\b/i
+  /\b(?:tech stack|built(?: with)?|github|deployed|portfolio|showcase|screenshots?|demo|repository|case study|web app|prototyped?)\b/i
 
 const REVISION_KEYWORDS =
   /\b(?:cheat sheet|revision|exam tomorrow|cram|quick reference|memori[sz]e|do not forget|don'?t forget|test on|key facts)\b/i
@@ -32,7 +32,9 @@ export function looksLikePoem(text: string): boolean {
 
 export function mathsScore(text: string): number {
   return MATHS_PATTERNS.reduce((score, re) => {
-    const matches = text.match(new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g'))
+    const matches = text.match(
+      new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g'),
+    )
     return score + (matches ? matches.length : 0)
   }, 0)
 }

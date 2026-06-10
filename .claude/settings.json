@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm preview:*)",
+      "Bash(pnpm assets:*)",
+      "Bash(pnpm video:*)",
+      "Bash(pnpm mcp:build:*)",
+      "Bash(pnpm exec playwright:*)",
+      "Bash(pnpm exec remotion:*)",
+      "Bash(pnpm exec prettier:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/claude-hooks/block-dangerous-command.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/claude-hooks/format-changed-file.js\""
+          },
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/claude-hooks/check-reduced-motion.js\""
+          },
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/claude-hooks/check-no-placeholder-copy.js\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/claude-hooks/validate-assets-after-generation.js\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -44,7 +44,7 @@ export const PALETTES: Record<AccentTheme, Palette> = {
     surface: '#fdf8ec',
     text: '#4a3826',
     muted: '#a39272',
-    accent: '#d99a2b',
+    accent: '#b97d12',
   },
   river: {
     id: 'river',
