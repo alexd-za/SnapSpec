@@ -58,7 +58,8 @@ export function WordRise({ text, delay = 0 }: { text: string; delay?: number }) 
       <span className="sr-only">{text}</span>
       <span aria-hidden>
         {words.map((word, i) => (
-          <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+          <span key={i}>
+            <span className="inline-block overflow-hidden pb-[0.08em] align-bottom">
             <motion.span
               className="inline-block"
               initial={{ y: '110%' }}
@@ -67,6 +68,7 @@ export function WordRise({ text, delay = 0 }: { text: string; delay?: number }) 
             >
               {word}
             </motion.span>
+            </span>
             {i < words.length - 1 ? ' ' : ''}
           </span>
         ))}
