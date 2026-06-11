@@ -81,7 +81,7 @@ export function BlockRenderer({ block, headingAs = 'h1' }: BlockRendererProps) {
           <SectionTitle title={block.title ?? 'Definitions'} />
           <dl className="grid gap-3 sm:grid-cols-2">
             {block.terms.map((t, i) => (
-              <div key={i} className="rounded-md border border-ink/15 bg-bg/50 p-4">
+              <div key={i} className="rounded-xl bg-ink/4 p-4">
                 <dt className="text-sm font-semibold text-accent">{t.term}</dt>
                 <dd className="mt-1 text-sm text-ink/90">{t.definition}</dd>
               </div>
@@ -96,7 +96,7 @@ export function BlockRenderer({ block, headingAs = 'h1' }: BlockRendererProps) {
           <SectionTitle title={block.title ?? 'Formulas'} />
           <div className="space-y-3">
             {block.formulas.map((f, i) => (
-              <div key={i} className="rounded-md border border-ink/20 bg-bg/50 p-4">
+              <div key={i} className="rounded-xl bg-ink/4 p-4">
                 <p className="annotation text-base text-accent!">{f.label.toLowerCase()}</p>
                 <code className="mt-2 block overflow-x-auto rounded-lg bg-bg px-4 py-3 font-mono text-base">
                   {f.expression}
@@ -180,7 +180,7 @@ export function BlockRenderer({ block, headingAs = 'h1' }: BlockRendererProps) {
       return (
         <section>
           <SectionTitle title={block.title ?? 'Diagram'} />
-          <div className="rounded-md border border-ink/15 bg-bg/40">
+          <div className="rounded-xl bg-ink/4">
             <DiagramCanvas block={block} />
           </div>
         </section>
@@ -207,7 +207,7 @@ export function BlockRenderer({ block, headingAs = 'h1' }: BlockRendererProps) {
         <section>
           <SectionTitle title={block.title ?? 'Essay outline'} />
           <div className="space-y-4 text-sm">
-            <p className="rounded-md border-l-4 border border-ink/15 border-l-accent bg-accent/8 p-4 font-serif text-base italic">
+            <p className="rounded-xl border-l-4 border-l-accent bg-accent/8 p-4 font-serif text-base italic">
               {block.thesis}
             </p>
             <ol className="space-y-2 pl-1">
@@ -239,7 +239,7 @@ export function BlockRenderer({ block, headingAs = 'h1' }: BlockRendererProps) {
       const tone = TONE_STYLE[block.tone] ?? TONE_STYLE.info
       const Icon = tone.icon
       return (
-        <aside className="rounded-md border-l-4 border border-ink/15 border-l-accent bg-accent/10 p-4">
+        <aside className="rounded-xl border-l-4 border-l-accent bg-accent/10 p-4">
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
             <Icon size={14} aria-hidden />
             {block.title ?? tone.label}

@@ -23,7 +23,7 @@ export function QuizView({ block }: { block: QuizBlock }) {
       {block.questions.map((q, i) => {
         const open = revealed.has(i)
         return (
-          <li key={i} className="rounded-xl border border-mist/20 bg-bg/50 p-4">
+          <li key={i} className="rounded-xl bg-ink/4 p-4">
             <div className="flex items-start justify-between gap-3">
               <p className="text-sm font-medium">
                 <span className="mr-2 text-accent">{i + 1}.</span>
@@ -31,7 +31,7 @@ export function QuizView({ block }: { block: QuizBlock }) {
               </p>
               <button
                 onClick={() => toggle(i)}
-                className="flex shrink-0 items-center gap-1.5 rounded-lg border border-mist/25 px-2.5 py-1 text-xs text-mist transition-colors hover:border-accent/50 hover:text-accent"
+                className="flex shrink-0 items-center gap-1.5 rounded-lg bg-ink/6 px-2.5 py-1 text-xs text-mist transition-colors hover:text-accent"
                 aria-expanded={open}
               >
                 {open ? <EyeOff size={13} aria-hidden /> : <Eye size={13} aria-hidden />}

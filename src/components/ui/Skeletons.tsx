@@ -3,7 +3,7 @@
 export function SkeletonBlock({ lines = 3, className = '' }: { lines?: number; className?: string }) {
   return (
     <div
-      className={`rounded-md border border-ink/15 bg-surface p-5 ${className}`}
+      className={`float-panel rounded-xl p-5 ${className}`}
       role="status"
       aria-label="Loading content"
     >
@@ -23,7 +23,7 @@ export function SkeletonBlock({ lines = 3, className = '' }: { lines?: number; c
 export function SkeletonCard({ className = '' }: { className?: string }) {
   return (
     <div
-      className={`rounded-md border border-ink/15 bg-surface p-5 ${className}`}
+      className={`float-panel rounded-xl p-5 ${className}`}
       role="status"
       aria-label="Loading card"
     >

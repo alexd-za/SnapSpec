@@ -64,7 +64,7 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
             aria-label="Close export drawer"
           />
           <motion.aside
-            className="paper-grain fixed bottom-0 right-0 top-0 z-50 w-full max-w-sm overflow-y-auto border-l border-ink/20 bg-surface p-6 shadow-[-12px_0_30px_-18px_color-mix(in_srgb,var(--sn-text)_50%,transparent)]"
+            className="fixed bottom-0 right-0 top-0 z-50 w-full max-w-sm overflow-y-auto bg-surface/80 p-6 shadow-[-24px_0_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl"
             initial={animate ? { x: '100%' } : { x: 0 }}
             animate={{ x: 0 }}
             exit={animate ? { x: '100%' } : undefined}
@@ -74,7 +74,7 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
           >
             <div className="mb-5 flex items-center justify-between">
               <div>
-                <h2 className="letterpress font-serif text-2xl">Press this page</h2>
+                <h2 className="font-serif text-2xl">Press this page</h2>
                 <p className="annotation text-sm">“{project.title}”</p>
               </div>
               <button
@@ -98,7 +98,7 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
                   <button
                     onClick={() => run(format)}
                     disabled={busy !== null}
-                    className="paper-lift flex w-full cursor-pointer items-start gap-3 rounded-sm border border-ink/15 bg-bg/50 p-3.5 text-left transition-colors hover:border-accent disabled:opacity-50"
+                    className="float-lift flex w-full cursor-pointer items-start gap-3 float-panel rounded-xl p-3.5 text-left transition-colors disabled:opacity-50"
                   >
                     <span className="mt-0.5 text-accent">
                       <Icon size={18} aria-hidden />

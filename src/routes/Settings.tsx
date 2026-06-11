@@ -36,7 +36,7 @@ export function Settings() {
 
       <Reveal delay={0.05}>
         <h2 className="annotation mb-2 mt-8 text-lg">appearance</h2>
-        <MossPanel className="divide-y divide-mist/10">
+        <MossPanel className="divide-y divide-ink/8">
           <Row title="Theme palette" desc="The accent used across the app and as the default for new Snaps.">
             <AccentSwitcher
               value={settings.defaultAccent}
@@ -60,12 +60,12 @@ export function Settings() {
 
       <Reveal delay={0.1}>
         <h2 className="annotation mb-2 mt-8 text-lg">defaults</h2>
-        <MossPanel className="divide-y divide-mist/10">
+        <MossPanel className="divide-y divide-ink/8">
           <Row title="Default template" desc="Pre-selected when you open New Snap.">
             <select
               value={settings.defaultTemplate}
               onChange={(e) => setSettings({ defaultTemplate: e.target.value as SnapTemplate })}
-              className="rounded-lg border border-mist/25 bg-bg/60 px-3 py-2 text-sm"
+              className="rounded-lg bg-ink/6 px-3 py-2 text-sm"
               aria-label="Default template"
             >
               {TEMPLATES.map((t) => (
@@ -85,7 +85,7 @@ export function Settings() {
 
       <Reveal delay={0.15}>
         <h2 className="annotation mb-2 mt-8 text-lg">storage</h2>
-        <MossPanel className="divide-y divide-mist/10">
+        <MossPanel className="divide-y divide-ink/8">
           <Row
             title="Export storage"
             desc={`Download all ${projects.length} Snaps and settings as a JSON backup.`}

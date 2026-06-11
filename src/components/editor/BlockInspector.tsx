@@ -15,7 +15,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 const inputCls =
-  'w-full rounded-sm border border-ink/20 bg-bg/60 px-3 py-2 text-sm text-ink placeholder:text-mist/60 focus:border-accent'
+  'w-full rounded-lg bg-ink/6 px-3 py-2 text-sm text-ink placeholder:text-mist/60 focus:border-accent'
 
 function TextInput({
   value,
@@ -67,7 +67,7 @@ const lines = (v: string) => v.split('\n').map((l) => l.trim()).filter(Boolean)
 export function BlockInspector({ block, onChange }: InspectorProps) {
   if (!block) {
     return (
-      <div className="rounded-sm border border-dashed border-ink/25 p-6 text-center">
+      <div className="rounded-xl bg-ink/4 p-6 text-center">
         <p className="annotation text-sm">select a block to edit it here</p>
       </div>
     )

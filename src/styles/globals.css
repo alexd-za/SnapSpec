@@ -5,59 +5,70 @@
 @import '@fontsource/ibm-plex-mono/500.css';
 
 /* ---------------------------------------------------------------------------
-   SpecSnap — botanical field journal design system.
-   Ink on paper: light parchment default, hairline rules, stamp buttons.
+   SpecSnap — one living canvas.
+   A single dark botanical gradient behind everything; content floats on it.
+   No borders-as-seams: sections separate by light, scale, and space.
    Five palettes switch via the data-accent attribute on <html>.
 --------------------------------------------------------------------------- */
 
 :root,
 [data-accent='forest'] {
-  /* Forest: deep green ink on warm paper (default) */
-  --sn-bg: #f4f0e5;
-  --sn-surface: #fdfbf4;
-  --sn-text: #202b21;
-  --sn-muted: #67745f;
-  --sn-accent: #38784a;
-  color-scheme: light;
+  /* Forest (default): deep canopy, luminous fern */
+  --sn-bg: #0d1a12;
+  --sn-bg-2: #122418;
+  --sn-surface: #18281d;
+  --sn-text: #edf3e8;
+  --sn-muted: #9db3a0;
+  --sn-accent: #6cc287;
+  --sn-glow: #2e5c3c;
+  color-scheme: dark;
 }
 
 [data-accent='mist'] {
-  /* Mist: slate ink on cool fog paper */
-  --sn-bg: #eef0ef;
-  --sn-surface: #fafbfa;
-  --sn-text: #26333b;
-  --sn-muted: #74838a;
-  --sn-accent: #34688c;
-  color-scheme: light;
+  /* Mist: dusk fog, river-blue light */
+  --sn-bg: #10171c;
+  --sn-bg-2: #152028;
+  --sn-surface: #1a2730;
+  --sn-text: #ecf1f4;
+  --sn-muted: #9fb2bd;
+  --sn-accent: #7cc1e4;
+  --sn-glow: #2c4d63;
+  color-scheme: dark;
 }
 
 [data-accent='sunlit'] {
-  /* Sunlit: bark ink on amber parchment */
-  --sn-bg: #f3e9d2;
-  --sn-surface: #faf4e3;
-  --sn-text: #46351f;
-  --sn-muted: #97865f;
-  --sn-accent: #a86c0c;
-  color-scheme: light;
+  /* Sunlit: late-evening amber woods */
+  --sn-bg: #1a1409;
+  --sn-bg-2: #241c0e;
+  --sn-surface: #2c2212;
+  --sn-text: #f5efe2;
+  --sn-muted: #bcab8d;
+  --sn-accent: #e3b04f;
+  --sn-glow: #6b5220;
+  color-scheme: dark;
 }
 
 [data-accent='river'] {
-  /* River: pale mist ink on deep blue slate (dark) */
-  --sn-bg: #15202a;
-  --sn-surface: #1b2934;
-  --sn-text: #e8eef2;
-  --sn-muted: #8298a6;
-  --sn-accent: #56c8d5;
+  /* River: deep water, glacial cyan */
+  --sn-bg: #0b151d;
+  --sn-bg-2: #101e29;
+  --sn-surface: #152532;
+  --sn-text: #e9f1f5;
+  --sn-muted: #92a9b6;
+  --sn-accent: #5fd0e0;
+  --sn-glow: #1f4a59;
   color-scheme: dark;
 }
 
 [data-accent='bloom'] {
-  /* Bloom: ivory ink on dark plum (dark) */
-  --sn-bg: #231b22;
-  --sn-surface: #2e242b;
-  --sn-text: #f3ece9;
-  --sn-muted: #a18d96;
-  --sn-accent: #c08fe2;
+  /* Bloom: midnight garden, wildflower violet */
+  --sn-bg: #160f16;
+  --sn-bg-2: #1f1520;
+  --sn-surface: #281b29;
+  --sn-text: #f4edf2;
+  --sn-muted: #b3a0b0;
+  --sn-accent: #cd9aea;
+  --sn-glow: #553059;
   color-scheme: dark;
 }
 
@@ -74,52 +85,16 @@
 
 html {
   background: var(--sn-bg);
-  transition: background-color 500ms ease;
+  transition: background-color 700ms ease;
 }
 
 body {
   @apply bg-bg text-ink font-sans antialiased;
   min-height: 100dvh;
   font-size: 15px;
-  /* full-bleed sections must never cause a horizontal scrollbar */
   overflow-x: clip;
 }
 
-/* Letterpress: big serif headings look pressed into the paper. */
-.letterpress {
-  text-shadow:
-    0 1px 0 color-mix(in srgb, var(--sn-surface) 70%, transparent),
-    0 -1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent);
-}
-
-:root {
-  --shadow-paper:
-    0 1px 2px color-mix(in srgb, var(--sn-text) 7%, transparent),
-    0 10px 28px -14px color-mix(in srgb, var(--sn-text) 28%, transparent);
-  --shadow-paper-high:
-    0 2px 4px color-mix(in srgb, var(--sn-text) 8%, transparent),
-    0 18px 44px -16px color-mix(in srgb, var(--sn-text) 35%, transparent);
-}
-
-/* A sheet of good paper resting on the desk. */
-.sheet {
-  background: var(--sn-surface);
-  border: 1px solid color-mix(in srgb, var(--sn-text) 10%, transparent);
-  box-shadow: var(--shadow-paper);
-}
-
-/* Picking a sheet up off the desk. */
-.paper-lift {
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
-}
-.paper-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-paper-high);
-}
-
-/* Fraunces: lean on its optical sizing + a touch of softness */
 .font-serif {
   font-variation-settings:
     'opsz' 72,
@@ -132,7 +107,7 @@ h3 {
   text-wrap: balance;
 }
 
-/* Field-note annotation: lowercase italic serif, like a margin note. */
+/* Margin-note voice: lowercase italic serif. */
 .annotation {
   font-family: var(--font-serif);
   font-style: italic;
@@ -143,7 +118,7 @@ h3 {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--sn-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--sn-accent) 40%, transparent);
 }
 
 :focus-visible {
@@ -151,93 +126,118 @@ h3 {
   outline-offset: 2px;
 }
 
-/* --- Paper atmosphere ----------------------------------------------------- */
+/* --- The living canvas ----------------------------------------------------
+   One continuous backdrop for the whole app: layered light pockets that
+   drift very slowly, like sun moving through a canopy. Sections place
+   nothing between themselves and this canvas. */
 
-/* Ruled-paper backdrop: faint horizontal rules like a field notebook. */
-.ruled-paper {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 43px,
-    color-mix(in srgb, var(--sn-text) 4%, transparent) 43px,
-    color-mix(in srgb, var(--sn-text) 4%, transparent) 44px
-  );
+.canvas-base {
+  background:
+    radial-gradient(
+      120% 90% at 75% -10%,
+      color-mix(in srgb, var(--sn-glow) 55%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      90% 70% at -10% 35%,
+      color-mix(in srgb, var(--sn-glow) 40%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      100% 80% at 85% 90%,
+      color-mix(in srgb, var(--sn-glow) 45%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(170deg, var(--sn-bg-2), var(--sn-bg) 55%, var(--sn-bg-2));
 }
 
-/* Paper grain — barely-there noise on surfaces. */
-.paper-grain {
-  position: relative;
-}
-.paper-grain::after {
-  content: '';
+.light-pocket {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
+  border-radius: 50%;
+  filter: blur(70px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--sn-accent) 22%, transparent),
+    transparent 70%
+  );
+  animation: drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(-4%, -3%) scale(1);
+  }
+  to {
+    transform: translate(5%, 4%) scale(1.12);
+  }
+}
+
+/* Film grain over the whole canvas so the gradient never looks plastic. */
+.canvas-grain {
   opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Hairline rule with a small ink tick, used between editorial sections. */
-.ink-rule {
-  height: 1px;
-  background: color-mix(in srgb, var(--sn-text) 18%, transparent);
-  position: relative;
-}
-.ink-rule::before {
-  content: '';
+/* Leaves drifting up through the canvas, far behind content. */
+.leaf-drift {
   position: absolute;
-  left: 0;
-  top: -2px;
-  width: 32px;
-  height: 5px;
-  background: var(--sn-accent);
+  bottom: -8%;
+  color: color-mix(in srgb, var(--sn-accent) 55%, transparent);
+  animation: leafRise linear infinite;
+  opacity: 0;
+}
+@keyframes leafRise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.35;
+  }
+  90% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(220deg);
+    opacity: 0;
+  }
 }
 
-/* Stamp shadow: the hard offset that makes buttons feel inked, not glowing.
-   Shadows are ink-tinted, never pure black. */
-.stamp {
-  border: 1px solid var(--sn-text);
-  box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--sn-text) 80%, var(--sn-accent));
-  transition:
-    transform 150ms ease,
-    box-shadow 150ms ease;
-}
-.stamp:hover:not(:disabled) {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 0 color-mix(in srgb, var(--sn-text) 80%, var(--sn-accent));
-}
-.stamp:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 0 color-mix(in srgb, var(--sn-text) 80%, var(--sn-accent));
-}
+/* --- Floating surfaces (no border seams) ----------------------------------
+   Panels are breaths of light on the canvas: translucent fill + soft depth
+   shadow + faint inner top-light. Never a visible outline. */
 
-/* A scrap of rougher paper: jagged bottom edge + a strip of tape.
-   Positioning is left to utilities so `absolute` placements work. */
-.field-note {
-  background: color-mix(in srgb, var(--sn-surface) 88%, var(--sn-accent));
-  border: 1px solid color-mix(in srgb, var(--sn-text) 18%, transparent);
+.float-panel {
+  background: color-mix(in srgb, var(--sn-text) 5%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow:
-    0 1px 2px color-mix(in srgb, var(--sn-text) 12%, transparent),
-    0 14px 22px -12px color-mix(in srgb, var(--sn-text) 45%, transparent);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 94%,
-    96% 97%,
-    90% 94%,
-    83% 98%,
-    75% 95%,
-    66% 99%,
-    58% 95%,
-    49% 98%,
-    41% 95%,
-    33% 99%,
-    24% 95%,
-    16% 98%,
-    8% 95%,
-    0 98%
-  );
+    inset 0 1px 0 color-mix(in srgb, var(--sn-text) 9%, transparent),
+    0 24px 48px -24px color-mix(in srgb, var(--sn-bg) 90%, #000);
+}
+
+.float-lift {
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    background-color 250ms ease;
+}
+.float-lift:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--sn-text) 8%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent),
+    0 32px 64px -28px color-mix(in srgb, var(--sn-bg) 95%, #000);
+}
+
+/* The messy-note scrap: a tinted breath of accent light. */
+.field-note {
+  background: color-mix(in srgb, var(--sn-accent) 13%, var(--sn-surface));
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent),
+    0 22px 40px -20px color-mix(in srgb, var(--sn-bg) 95%, #000);
+  border-radius: 4px 4px 10px 10px;
 }
 .pin {
   position: absolute;
@@ -249,30 +249,72 @@ h3 {
   border-radius: 50%;
   background: radial-gradient(
     circle at 35% 30%,
-    color-mix(in srgb, var(--sn-surface) 70%, var(--sn-accent)),
-    var(--sn-accent) 60%,
-    color-mix(in srgb, var(--sn-text) 60%, var(--sn-accent))
+    color-mix(in srgb, var(--sn-text) 80%, var(--sn-accent)),
+    var(--sn-accent) 55%,
+    color-mix(in srgb, var(--sn-bg) 55%, var(--sn-accent))
   );
-  box-shadow: 0 2px 4px color-mix(in srgb, var(--sn-text) 40%, transparent);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--sn-bg) 90%, #000);
 }
 
-/* Ink band: a full-width plate in the ink colour itself — same family, committed. */
-.ink-band {
-  background: var(--sn-text);
+/* Primary action: an organic luminous button, no hard edges. */
+.btn-organic {
+  background: var(--sn-accent);
   color: var(--sn-bg);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent),
+    0 12px 32px -10px color-mix(in srgb, var(--sn-accent) 55%, transparent);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+.btn-organic:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 40%, transparent),
+    0 18px 40px -12px color-mix(in srgb, var(--sn-accent) 65%, transparent);
+}
+.btn-organic:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
 }
 
-/* Specimen label: small italic tag pinned to a card corner. */
-.specimen-label {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 12px;
-  font-variation-settings:
-    'opsz' 14,
-    'SOFT' 50;
-  border: 1px solid color-mix(in srgb, var(--sn-text) 35%, transparent);
-  background: var(--sn-surface);
-  padding: 2px 10px;
+.btn-ghost {
+  background: color-mix(in srgb, var(--sn-text) 6%, transparent);
+  border-radius: 999px;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--sn-text) 11%, transparent);
+}
+
+/* Soft radial highlight behind hovered rows — light, not boxes. */
+.row-glow {
+  position: relative;
+  transition: transform 220ms ease;
+}
+.row-glow::before {
+  content: '';
+  position: absolute;
+  inset: -6px -20px;
+  border-radius: 24px;
+  background: radial-gradient(
+    60% 100% at 30% 50%,
+    color-mix(in srgb, var(--sn-accent) 10%, transparent),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+.row-glow:hover {
+  transform: translateX(6px);
+}
+.row-glow:hover::before {
+  opacity: 1;
 }
 
 /* --- Loading & motion ------------------------------------------------------ */
@@ -280,8 +322,8 @@ h3 {
 .skeleton {
   position: relative;
   overflow: hidden;
-  background: color-mix(in srgb, var(--sn-muted) 16%, var(--sn-surface));
-  border-radius: 3px;
+  background: color-mix(in srgb, var(--sn-text) 7%, transparent);
+  border-radius: 8px;
 }
 .skeleton::after {
   content: '';
@@ -291,7 +333,7 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--sn-accent) 10%, transparent),
+    color-mix(in srgb, var(--sn-accent) 14%, transparent),
     transparent
   );
   animation: shimmer 1.8s infinite;
@@ -313,7 +355,6 @@ h3 {
   }
 }
 
-/* Diagram nodes grow out from the core like buds. */
 .node-pop {
   transform-origin: center;
   transform-box: fill-box;
@@ -330,17 +371,16 @@ h3 {
   }
 }
 
-/* Letterpress ticker: a slow editorial marquee. Reduced motion freezes it
-   on the first copy (the duplicate is aria-hidden). */
+/* Borderless drifting marquee, fading at the edges into the canvas. */
 .ticker {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
 .ticker-track {
   display: inline-flex;
   white-space: nowrap;
-  animation: ticker 36s linear infinite;
+  animation: ticker 38s linear infinite;
 }
 .ticker:hover .ticker-track {
   animation-play-state: paused;
@@ -365,22 +405,21 @@ h3 {
   }
 }
 
-/* Hand-drawn squiggle underline for the active nav link. */
-.squiggle-active {
+/* Active nav link: small luminous dot below, no underline bars. */
+.nav-dot {
   position: relative;
 }
-.squiggle-active::after {
+.nav-dot::after {
   content: '';
   position: absolute;
-  left: 4px;
-  right: 4px;
-  bottom: -3px;
+  left: 50%;
+  bottom: -4px;
+  width: 4px;
   height: 4px;
-  background-color: var(--sn-accent);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4 C 10 1, 20 5, 30 3 S 50 2, 59 4' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4 C 10 1, 20 5, 30 3 S 50 2, 59 4' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--sn-accent);
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--sn-accent) 55%, transparent);
 }
 
 .flip-scene {

@@ -73,10 +73,10 @@ export function Editor() {
 
   return (
     <div data-testid="editor">
-      <div className="paper-grain mb-5 flex flex-wrap items-center gap-3 rounded-md border border-ink/15 bg-surface/85 p-3 backdrop-blur-sm">
+      <div className="mb-5 flex flex-wrap items-center gap-3 float-panel rounded-2xl p-3">
         <input
           aria-label="Snap title"
-          className="min-w-0 flex-1 rounded-sm border border-transparent bg-transparent px-2 py-1 font-serif text-lg font-semibold focus:border-ink/30"
+          className="min-w-0 flex-1 rounded-lg bg-transparent px-2 py-1 font-serif text-lg font-semibold focus:bg-ink/6"
           value={project.title}
           onChange={(e) => edit(() => updateProject(project.id, { title: e.target.value }))}
         />
@@ -92,7 +92,7 @@ export function Editor() {
           onClick={() => setNarrow((n) => !n)}
           aria-label={narrow ? 'Switch to wide preview' : 'Switch to narrow preview'}
           title="Toggle preview width"
-          className="hidden cursor-pointer rounded-sm border border-ink/25 p-2 text-mist transition-colors hover:border-accent hover:text-accent lg:block"
+          className="hidden cursor-pointer rounded-full bg-ink/6 p-2 text-mist transition-colors hover:border-accent hover:text-accent lg:block"
         >
           {narrow ? <Smartphone size={15} aria-hidden /> : <Monitor size={15} aria-hidden />}
         </button>

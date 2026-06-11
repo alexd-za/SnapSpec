@@ -24,7 +24,7 @@ export function GalleryCard({ project, index, onQuickExport, onDelete }: Gallery
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.5) }}
       whileHover={animate ? { y: -4, rotate: 0 } : undefined}
-      className="paper-grain paper-lift flex flex-col rounded-md border border-ink/15 bg-surface p-5 transition-colors hover:border-ink/40"
+      className="float-lift flex flex-col float-panel rounded-xl p-5 transition-colors hover:border-ink/40"
       style={{ rotate: index % 3 === 0 ? '-0.4deg' : index % 3 === 1 ? '0.35deg' : '0deg' }}
     >
       <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-mist">
@@ -32,7 +32,7 @@ export function GalleryCard({ project, index, onQuickExport, onDelete }: Gallery
         <span className="flex items-center gap-2">
           {templateMeta(project.template).name}
           <span
-            className="inline-block h-3.5 w-3.5 rounded-full border border-ink/30"
+            className="inline-block h-3.5 w-3.5 rounded-full"
             style={{
               background: `linear-gradient(135deg, ${palette.bg} 50%, ${palette.accent} 50%)`,
             }}
@@ -54,7 +54,7 @@ export function GalleryCard({ project, index, onQuickExport, onDelete }: Gallery
       <div className="mt-4 flex items-center gap-1.5 border-t border-ink/10 pt-3">
         <Link
           to={`/editor/${project.id}`}
-          className="inline-flex items-center gap-1.5 rounded-sm border border-ink/25 bg-bg/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+          className="inline-flex items-center gap-1.5 rounded-full bg-ink/6 bg-bg/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent"
         >
           <PencilLine size={12} aria-hidden /> Open editor
         </Link>

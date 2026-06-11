@@ -80,7 +80,7 @@ export function Exports() {
             </p>
           </MossPanel>
         ) : (
-          <MossPanel className="divide-y divide-mist/10">
+          <MossPanel className="divide-y divide-ink/8">
             {records.map(({ record, project }) => (
               <div key={record.id} className="flex items-center gap-3 px-4 py-3">
                 <img src={FORMAT_ICONS[record.format]} alt="" className="h-9 w-9 rounded-lg" />

@@ -38,7 +38,7 @@ describe('exportHtml', () => {
   it('produces a standalone page with inline palette CSS', () => {
     const html = exportHtml(fixtureProject())
     expect(html).toContain('<!doctype html>')
-    expect(html).toContain('--accent:#38784a')
+    expect(html).toContain('--accent:#6cc287')
     expect(html).toContain('Photosynthesis')
     expect(html).not.toContain('<script')
     expect(html).toContain('viewport')

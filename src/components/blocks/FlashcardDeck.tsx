@@ -27,11 +27,11 @@ export function FlashcardDeck({ block }: { block: FlashcardsBlock }) {
             aria-label={isFlipped ? `Answer: ${card.back}` : `Question: ${card.front}. Activate to flip.`}
           >
             <div className={`flip-inner relative h-full min-h-28 ${isFlipped ? 'flipped' : ''}`}>
-              <div className="flip-face absolute inset-0 flex flex-col justify-between rounded-xl border border-mist/25 bg-bg/60 p-4">
+              <div className="flip-face absolute inset-0 flex flex-col justify-between rounded-xl bg-ink/6 p-4">
                 <p className="text-sm font-medium">{card.front}</p>
                 <p className="text-[11px] uppercase tracking-wider text-mist">tap to flip</p>
               </div>
-              <div className="flip-face flip-back absolute inset-0 flex flex-col justify-between rounded-xl border border-accent/50 bg-accent/10 p-4">
+              <div className="flip-face flip-back absolute inset-0 flex flex-col justify-between rounded-xl bg-accent/15 shadow-[inset_0_0_0_1.5px_var(--sn-accent)] p-4">
                 <p className="text-sm">{card.back}</p>
                 <p className="text-[11px] uppercase tracking-wider text-accent">answer</p>
               </div>

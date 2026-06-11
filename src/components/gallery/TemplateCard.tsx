@@ -37,21 +37,21 @@ export function TemplateCard({
       disabled={!interactive}
       whileHover={animate && interactive ? { y: -3 } : undefined}
       whileTap={animate && interactive ? { scale: 0.99 } : undefined}
-      className={`paper-grain relative rounded-md border p-5 text-left transition-colors disabled:cursor-default ${
+      className={`relative rounded-2xl p-5 text-left transition-colors disabled:cursor-default ${
         selected
-          ? 'border-accent bg-accent/10 shadow-[3px_3px_0_0_var(--sn-accent)]'
-          : 'border-ink/15 bg-surface hover:border-ink/40'
+          ? 'bg-accent/15 shadow-[0_0_0_2px_var(--sn-accent),0_18px_40px_-18px_var(--sn-accent)]'
+          : 'float-panel float-lift'
       } ${interactive ? 'cursor-pointer' : ''}`}
     >
       <div className="mb-3 flex items-start justify-between">
         <img
           src={TEMPLATE_ICONS[template.id]}
           alt=""
-          className="h-12 w-12 rounded-sm border border-ink/10"
+          className="h-12 w-12 rounded-sm "
         />
         <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
           {suggested ? (
-            <span className="specimen-label border-accent text-accent">suggested</span>
+            <span className="annotation text-accent!">suggested</span>
           ) : index !== undefined ? (
             `plate ${String(index + 1).padStart(2, '0')}`
           ) : null}

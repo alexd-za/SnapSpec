@@ -47,7 +47,7 @@ export function IntroSequence() {
     <AnimatePresence>
       <motion.div
         key="intro"
-        className="ruled-paper fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-bg"
+        className="canvas-base fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-bg"
         exit={{ opacity: 0 }}
         role="dialog"
         aria-label="SpecSnap intro"

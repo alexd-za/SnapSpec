@@ -132,7 +132,7 @@ export function NewSnap() {
               }}
               rows={12}
               placeholder={`Paste anything messy here — class notes, a poem, maths working, a product idea…\n\nSpecSnap finds the structure: title, summary, key points, definitions, formulas, quotes, flashcards.`}
-              className="w-full resize-y rounded-xl border border-mist/25 bg-bg/60 p-4 font-mono text-sm leading-relaxed text-ink placeholder:text-mist/50 focus:border-accent/60"
+              className="w-full resize-y rounded-xl bg-ink/6 p-4 font-mono text-sm leading-relaxed text-ink placeholder:text-mist/50 focus:border-accent/60"
             />
           </label>
 

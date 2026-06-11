@@ -48,10 +48,10 @@ export function BlockList({
           return (
             <li
               key={block.id}
-              className={`group rounded-sm border transition-colors ${
+              className={`group rounded-xl transition-colors ${
                 selected
-                  ? 'border-accent bg-accent/10'
-                  : 'border-ink/15 bg-surface hover:border-ink/35'
+                  ? 'bg-accent/15 shadow-[0_0_0_1.5px_var(--sn-accent)]'
+                  : 'float-panel float-lift'
               }`}
             >
               <button

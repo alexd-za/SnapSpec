@@ -22,10 +22,20 @@ export function AppShell() {
       <NatureBackground />
       <IntroSequence />
 
-      {/* Masthead: journal-style rule with serif wordmark and mono nav */}
-      <header className="sticky top-0 z-40 border-b border-ink/20 bg-bg/90 backdrop-blur-sm">
+      {/* Nav melts into the canvas: a blur veil that fades out, no border line */}
+      <header className="sticky top-0 z-40">
+        <div
+          className="absolute inset-x-0 -bottom-6 top-0 backdrop-blur-md"
+          style={{
+            background:
+              'linear-gradient(to bottom, color-mix(in srgb, var(--sn-bg) 88%, transparent), color-mix(in srgb, var(--sn-bg) 55%, transparent) 70%, transparent)',
+            maskImage: 'linear-gradient(to bottom, #000 65%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to bottom, #000 65%, transparent)',
+          }}
+          aria-hidden
+        />
         <nav
-          className="mx-auto flex max-w-6xl items-baseline gap-0.5 px-3 pb-2.5 pt-3 sm:gap-1 sm:px-4"
+          className="relative mx-auto flex max-w-6xl items-center gap-0.5 px-3 py-3.5 sm:gap-1 sm:px-5"
           aria-label="Main navigation"
         >
           <NavLink
@@ -40,7 +50,9 @@ export function AppShell() {
             >
               <LogoMark size={22} />
             </motion.span>
-            <span className="hidden font-serif text-lg font-semibold tracking-tight min-[440px]:inline">SpecSnap</span>
+            <span className="hidden font-serif text-lg font-semibold tracking-tight min-[440px]:inline">
+              SpecSnap
+            </span>
             <span className="annotation mb-0.5 hidden self-end text-xs md:inline">
               a field guide for messy notes
             </span>
@@ -51,8 +63,8 @@ export function AppShell() {
               to={to}
               end={end}
               className={({ isActive }) =>
-                `whitespace-nowrap px-1.5 py-1 font-mono text-[10px] uppercase tracking-[0.08em] transition-colors sm:px-2.5 sm:text-[11px] sm:tracking-[0.14em] ${
-                  isActive ? 'squiggle-active text-accent' : 'text-mist hover:text-ink'
+                `whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12.5px] transition-colors sm:px-3.5 ${
+                  isActive ? 'nav-dot text-accent' : 'text-mist hover:bg-ink/8 hover:text-ink'
                 }`
               }
             >
@@ -62,25 +74,26 @@ export function AppShell() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 pb-20 pt-8">
+      <main className="mx-auto max-w-6xl px-4 pb-24 pt-8 sm:px-5">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
             initial={animate ? { opacity: 0, y: 10 } : false}
             animate={{ opacity: 1, y: 0 }}
             exit={animate ? { opacity: 0, y: -6 } : undefined}
-            transition={{ duration: 0.28, ease: 'easeOut' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             <Outlet />
           </motion.div>
         </AnimatePresence>
       </main>
 
-      <footer className="border-t border-ink/15 py-7 text-center">
-        <LogoMark size={18} className="mx-auto mb-2 opacity-70" />
+      {/* Footer dissolves into the canvas — no rule above it */}
+      <footer className="pb-10 pt-4 text-center">
+        <LogoMark size={18} className="mx-auto mb-2 opacity-60" />
         <p className="annotation text-sm">local-first · your notes never leave this device</p>
-        <p className="annotation mt-0.5 text-xs opacity-70">
-          set in fraunces &amp; plex mono · pressed by hand, not by cloud
+        <p className="annotation mt-0.5 text-xs opacity-60">
+          set in fraunces &amp; plex mono · grown, not assembled
         </p>
       </footer>
     </div>

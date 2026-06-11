@@ -1,27 +1,55 @@
+import { useMotionPref } from '../../lib/hooks/useMotionPref'
+
+const LEAVES = [
+  { left: '8%', size: 14, duration: 34, delay: 0 },
+  { left: '22%', size: 10, duration: 46, delay: 9 },
+  { left: '47%', size: 12, duration: 40, delay: 18 },
+  { left: '68%', size: 9, duration: 52, delay: 4 },
+  { left: '84%', size: 13, duration: 38, delay: 24 },
+]
+
 /**
- * Fixed paper backdrop: notebook rules, a margin line, and desk-lamp light
- * falling from the top corner with a soft vignette — the page sits on a desk.
+ * The living canvas: one continuous backdrop for the whole app.
+ * Layered light pockets drift like sun through a canopy; a few leaves
+ * rise slowly far behind the content. Nothing else sits between
+ * sections and this canvas — no rules, no bands, no seams.
  */
 export function NatureBackground() {
+  const animate = useMotionPref()
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
-      <div className="ruled-paper absolute inset-0 opacity-60" />
-      {/* desk-lamp warmth + edge vignette */}
+    <div className="canvas-base pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
       <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(1100px 700px at 18% -8%, color-mix(in srgb, var(--sn-surface) 55%, transparent), transparent 65%), radial-gradient(140% 120% at 50% 50%, transparent 64%, color-mix(in srgb, var(--sn-text) 7%, transparent) 100%)',
-        }}
+        className="light-pocket h-[55vh] w-[55vh]"
+        style={{ top: '-12%', right: '-8%', animationDuration: '30s' }}
       />
-      {/* the journal's margin line, inked in the accent colour */}
       <div
-        className="absolute bottom-0 top-0 hidden w-px lg:block"
-        style={{
-          left: 'max(1rem, calc(50% - 36rem))',
-          background: 'color-mix(in srgb, var(--sn-accent) 35%, transparent)',
-        }}
+        className="light-pocket h-[45vh] w-[45vh]"
+        style={{ bottom: '-10%', left: '-10%', animationDuration: '38s', animationDelay: '-12s' }}
       />
+      <div
+        className="light-pocket h-[34vh] w-[34vh] opacity-70"
+        style={{ top: '38%', left: '52%', animationDuration: '46s', animationDelay: '-20s' }}
+      />
+      {animate &&
+        LEAVES.map((leaf, i) => (
+          <svg
+            key={i}
+            className="leaf-drift"
+            style={{
+              left: leaf.left,
+              width: leaf.size,
+              height: leaf.size,
+              animationDuration: `${leaf.duration}s`,
+              animationDelay: `${leaf.delay}s`,
+            }}
+            viewBox="0 0 16 16"
+            fill="currentColor"
+          >
+            <path d="M8 1 C 12 4, 14 8, 8 15 C 2 8, 4 4, 8 1 Z" opacity="0.8" />
+            <path d="M8 3 L 8 13" stroke="currentColor" strokeWidth="0.6" fill="none" />
+          </svg>
+        ))}
+      <div className="canvas-grain absolute inset-0" />
     </div>
   )
 }

@@ -9,7 +9,7 @@ export function NotFound() {
         alt=""
         className="mx-auto mb-6 h-36 w-36 opacity-80"
       />
-      <h1 className="letterpress font-serif text-2xl">This trail leads nowhere</h1>
+      <h1 className="font-serif text-2xl">This trail leads nowhere</h1>
       <p className="annotation mt-2 text-base">this page fell out of the binder</p>
       <Link to="/" className="mt-6 inline-block text-sm text-accent hover:underline">
         ← Back to the clearing

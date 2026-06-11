@@ -5,13 +5,10 @@ type MossPanelProps = HTMLAttributes<HTMLDivElement> & {
   glass?: boolean
 }
 
-/** The standard SpecSnap surface: a sheet of good paper with a soft shadow. */
-export function MossPanel({ children, glass = false, className = '', ...rest }: MossPanelProps) {
+/** The standard surface: a breath of light floating on the canvas — no border seams. */
+export function MossPanel({ children, glass: _glass, className = '', ...rest }: MossPanelProps) {
   return (
-    <div
-      {...rest}
-      className={`paper-grain sheet rounded-lg ${glass ? 'bg-surface/85 backdrop-blur-md' : ''} ${className}`}
-    >
+    <div {...rest} className={`float-panel rounded-2xl ${className}`}>
       {children}
     </div>
   )
