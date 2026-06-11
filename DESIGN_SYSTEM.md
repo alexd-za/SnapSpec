@@ -1,16 +1,16 @@
 # Design system — one living canvas
 
-SpecSnap is a single continuous surface: a deep botanical gradient canvas behind the whole app, with drifting light pockets like sun through a canopy, slow-rising leaves, and film grain. Nothing is boxed off — no section borders, hairlines, bands, or torn edges. Sections separate by light, scale, and air; panels are translucent breaths of light (`.float-panel`), never outlined.
+SpecSnap is a single continuous surface: a white-paper canvas in living light — soft tinted light pockets drifting like sun through leaves, rising leaf particles, film grain, a vine growing down the margin with scroll, and a lazy-loaded three.js paper-and-leaf scene behind the hero. Nothing is boxed off — no section borders, hairlines, bands, or torn edges. Sections separate by light, scale, and air; panels are translucent breaths of light (`.float-panel`), never outlined.
 
 ## Palettes (five moods of the same forest)
 
 | Theme | bg | surface | text | muted | accent | glow | Reads as |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Forest** (default) | `#0d1a12` | `#18281d` | `#edf3e8` | `#9db3a0` | `#6cc287` | `#2e5c3c` | deep canopy, luminous fern |
-| Mist | `#10171c` | `#1a2730` | `#ecf1f4` | `#9fb2bd` | `#7cc1e4` | `#2c4d63` | dusk fog, river-blue light |
-| Sunlit | `#1a1409` | `#2c2212` | `#f5efe2` | `#bcab8d` | `#e3b04f` | `#6b5220` | late-evening amber woods |
-| River | `#0b151d` | `#152532` | `#e9f1f5` | `#92a9b6` | `#5fd0e0` | `#1f4a59` | deep water, glacial cyan |
-| Bloom | `#160f16` | `#281b29` | `#f4edf2` | `#b3a0b0` | `#cd9aea` | `#553059` | midnight garden, wildflower violet |
+| **Forest** (default) | `#fbfaf6` | `#ffffff` | `#202c23` | `#6e7d6e` | `#3e7c4f` | `#dde9d6` | white paper, fern ink |
+| Mist | `#f9fafb` | `#ffffff` | `#233038` | `#71818b` | `#38749b` | `#dbe7ee` | cool white, river-blue ink |
+| Sunlit | `#fdfaf2` | `#ffffff` | `#3a3122` | `#93846a` | `#a8730e` | `#f1e4c4` | warm white, honey ink |
+| River | `#f7fafa` | `#ffffff` | `#1e2e34` | `#698590` | `#1e7c8c` | `#d4e8ea` | glacial white, deep teal ink |
+| Bloom | `#fcf9f8` | `#ffffff` | `#322327` | `#92797e` | `#b04f63` | `#f2dcdf` | blossom white, wild-rose ink (deliberately no AI violet) |
 
 Tokens `bg/surface/ink/mist/accent` map from `--sn-*` vars (plus `--sn-bg-2`, `--sn-glow` for the canvas); mirrored in `src/lib/model/palettes.ts` for exports/Remotion — keep in sync.
 

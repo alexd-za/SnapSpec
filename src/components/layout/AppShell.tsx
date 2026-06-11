@@ -4,6 +4,7 @@ import { LogoMark } from '../ui/LogoMark'
 import { NatureBackground } from '../nature/NatureBackground'
 import { IntroSequence } from '../motion/IntroSequence'
 import { useMotionPref } from '../../lib/hooks/useMotionPref'
+import { GrowingVine } from '../nature/GrowingVine'
 
 const NAV = [
   { to: '/', label: 'Home', end: true },
@@ -20,6 +21,7 @@ export function AppShell() {
   return (
     <div className="min-h-dvh">
       <NatureBackground />
+      <GrowingVine />
       <IntroSequence />
 
       {/* Nav melts into the canvas: a blur veil that fades out, no border line */}

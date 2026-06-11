@@ -1,6 +1,6 @@
 {
   "app": "specsnap",
-  "generatedAt": "2026-06-11T09:38:47.084Z",
+  "generatedAt": "2026-06-11T14:50:12.538Z",
   "count": 40,
   "assets": [
     {
@@ -9,7 +9,7 @@
       "desc": "A leaf-vein mark growing inside a rounded square, the SpecSnap logo.",
       "svgPath": "public/generated/svg/01-specsnap-logo.svg",
       "svgzPath": "public/generated/svgz/01-specsnap-logo.svgz",
-      "svgBytes": 724,
+      "svgBytes": 721,
       "svgzBytes": 417
     },
     {
@@ -18,7 +18,7 @@
       "desc": "Deep charcoal green theme with fern accent.",
       "svgPath": "public/generated/svg/02-forest-theme.svg",
       "svgzPath": "public/generated/svgz/02-forest-theme.svgz",
-      "svgBytes": 1020,
+      "svgBytes": 1014,
       "svgzBytes": 470
     },
     {
@@ -27,8 +27,8 @@
       "desc": "Off-white mist theme with river blue accent.",
       "svgPath": "public/generated/svg/03-mist-theme.svg",
       "svgzPath": "public/generated/svgz/03-mist-theme.svgz",
-      "svgBytes": 1015,
-      "svgzBytes": 470
+      "svgBytes": 1009,
+      "svgzBytes": 467
     },
     {
       "file": "04-sunlit-theme.svg",
@@ -36,8 +36,8 @@
       "desc": "Warm parchment theme with honey amber accent.",
       "svgPath": "public/generated/svg/04-sunlit-theme.svg",
       "svgzPath": "public/generated/svgz/04-sunlit-theme.svgz",
-      "svgBytes": 1022,
-      "svgzBytes": 476
+      "svgBytes": 1016,
+      "svgzBytes": 472
     },
     {
       "file": "05-river-theme.svg",
@@ -45,8 +45,8 @@
       "desc": "Deep blue slate theme with glacial cyan accent.",
       "svgPath": "public/generated/svg/05-river-theme.svg",
       "svgzPath": "public/generated/svgz/05-river-theme.svgz",
-      "svgBytes": 1021,
-      "svgzBytes": 478
+      "svgBytes": 1015,
+      "svgzBytes": 471
     },
     {
       "file": "06-bloom-theme.svg",
@@ -54,8 +54,8 @@
       "desc": "Dark plum theme with wildflower violet accent.",
       "svgPath": "public/generated/svg/06-bloom-theme.svg",
       "svgzPath": "public/generated/svgz/06-bloom-theme.svgz",
-      "svgBytes": 1020,
-      "svgzBytes": 476
+      "svgBytes": 1014,
+      "svgzBytes": 472
     },
     {
       "file": "07-study-template.svg",
@@ -63,8 +63,8 @@
       "desc": "A study page with summary and key points.",
       "svgPath": "public/generated/svg/07-study-template.svg",
       "svgzPath": "public/generated/svgz/07-study-template.svgz",
-      "svgBytes": 1760,
-      "svgzBytes": 515
+      "svgBytes": 1757,
+      "svgzBytes": 512
     },
     {
       "file": "08-poetry-template.svg",
@@ -72,8 +72,8 @@
       "desc": "A poem page with stanzas and annotations.",
       "svgPath": "public/generated/svg/08-poetry-template.svg",
       "svgzPath": "public/generated/svgz/08-poetry-template.svgz",
-      "svgBytes": 1767,
-      "svgzBytes": 521
+      "svgBytes": 1764,
+      "svgzBytes": 517
     },
     {
       "file": "09-maths-template.svg",
@@ -81,8 +81,8 @@
       "desc": "A maths page with formula cards.",
       "svgPath": "public/generated/svg/09-maths-template.svg",
       "svgzPath": "public/generated/svgz/09-maths-template.svgz",
-      "svgBytes": 1755,
-      "svgzBytes": 512
+      "svgBytes": 1752,
+      "svgzBytes": 509
     },
     {
       "file": "10-product-template.svg",
@@ -90,8 +90,8 @@
       "desc": "A product one-pager with problem and solution.",
       "svgPath": "public/generated/svg/10-product-template.svg",
       "svgzPath": "public/generated/svgz/10-product-template.svgz",
-      "svgBytes": 1773,
-      "svgzBytes": 520
+      "svgBytes": 1770,
+      "svgzBytes": 517
     },
     {
       "file": "11-showcase-template.svg",
@@ -99,8 +99,8 @@
       "desc": "A showcase page with gallery tiles.",
       "svgPath": "public/generated/svg/11-showcase-template.svg",
       "svgzPath": "public/generated/svgz/11-showcase-template.svgz",
-      "svgBytes": 1768,
-      "svgzBytes": 515
+      "svgBytes": 1765,
+      "svgzBytes": 513
     },
     {
       "file": "12-cheatsheet-template.svg",
@@ -108,8 +108,8 @@
       "desc": "A dense printable revision sheet.",
       "svgPath": "public/generated/svg/12-cheatsheet-template.svg",
       "svgzPath": "public/generated/svgz/12-cheatsheet-template.svgz",
-      "svgBytes": 1772,
-      "svgzBytes": 515
+      "svgBytes": 1769,
+      "svgzBytes": 512
     },
     {
       "file": "13-heading-block.svg",
@@ -117,8 +117,8 @@
       "desc": "A heading block with eyebrow and title lines.",
       "svgPath": "public/generated/svg/13-heading-block.svg",
       "svgzPath": "public/generated/svgz/13-heading-block.svgz",
-      "svgBytes": 1062,
-      "svgzBytes": 460
+      "svgBytes": 1059,
+      "svgzBytes": 457
     },
     {
       "file": "14-summary-block.svg",
@@ -126,8 +126,8 @@
       "desc": "A summary paragraph block.",
       "svgPath": "public/generated/svg/14-summary-block.svg",
       "svgzPath": "public/generated/svgz/14-summary-block.svgz",
-      "svgBytes": 1142,
-      "svgzBytes": 442
+      "svgBytes": 1139,
+      "svgzBytes": 441
     },
     {
       "file": "15-keypoints-block.svg",
@@ -135,8 +135,8 @@
       "desc": "A bulleted key points block.",
       "svgPath": "public/generated/svg/15-keypoints-block.svg",
       "svgzPath": "public/generated/svgz/15-keypoints-block.svgz",
-      "svgBytes": 1221,
-      "svgzBytes": 478
+      "svgBytes": 1218,
+      "svgzBytes": 476
     },
     {
       "file": "16-definition-block.svg",
@@ -144,8 +144,8 @@
       "desc": "A term and definition list block.",
       "svgPath": "public/generated/svg/16-definition-block.svg",
       "svgzPath": "public/generated/svgz/16-definition-block.svgz",
-      "svgBytes": 1136,
-      "svgzBytes": 454
+      "svgBytes": 1133,
+      "svgzBytes": 452
     },
     {
       "file": "17-formula-block.svg",
@@ -153,8 +153,8 @@
       "desc": "A formula card with an equation.",
       "svgPath": "public/generated/svg/17-formula-block.svg",
       "svgzPath": "public/generated/svgz/17-formula-block.svgz",
-      "svgBytes": 1133,
-      "svgzBytes": 473
+      "svgBytes": 1127,
+      "svgzBytes": 471
     },
     {
       "file": "18-quote-block.svg",
@@ -162,8 +162,8 @@
       "desc": "A quotation block with attribution line.",
       "svgPath": "public/generated/svg/18-quote-block.svg",
       "svgzPath": "public/generated/svgz/18-quote-block.svgz",
-      "svgBytes": 1165,
-      "svgzBytes": 500
+      "svgBytes": 1162,
+      "svgzBytes": 496
     },
     {
       "file": "19-comparison-block.svg",
@@ -171,8 +171,8 @@
       "desc": "A two-column comparison table block.",
       "svgPath": "public/generated/svg/19-comparison-block.svg",
       "svgzPath": "public/generated/svgz/19-comparison-block.svgz",
-      "svgBytes": 1470,
-      "svgzBytes": 478
+      "svgBytes": 1467,
+      "svgzBytes": 476
     },
     {
       "file": "20-timeline-block.svg",
@@ -180,8 +180,8 @@
       "desc": "A vertical timeline block with event nodes.",
       "svgPath": "public/generated/svg/20-timeline-block.svg",
       "svgzPath": "public/generated/svgz/20-timeline-block.svgz",
-      "svgBytes": 1314,
-      "svgzBytes": 508
+      "svgBytes": 1311,
+      "svgzBytes": 506
     },
     {
       "file": "21-diagram-block.svg",
@@ -189,8 +189,8 @@
       "desc": "A concept map diagram block with branch connections.",
       "svgPath": "public/generated/svg/21-diagram-block.svg",
       "svgzPath": "public/generated/svgz/21-diagram-block.svgz",
-      "svgBytes": 1288,
-      "svgzBytes": 514
+      "svgBytes": 1273,
+      "svgzBytes": 512
     },
     {
       "file": "22-flashcard-block.svg",
@@ -198,8 +198,8 @@
       "desc": "A stack of flip cards.",
       "svgPath": "public/generated/svg/22-flashcard-block.svg",
       "svgzPath": "public/generated/svgz/22-flashcard-block.svgz",
-      "svgBytes": 1216,
-      "svgzBytes": 491
+      "svgBytes": 1210,
+      "svgzBytes": 489
     },
     {
       "file": "23-quiz-block.svg",
@@ -207,8 +207,8 @@
       "desc": "A quiz block with question and hidden answer.",
       "svgPath": "public/generated/svg/23-quiz-block.svg",
       "svgzPath": "public/generated/svgz/23-quiz-block.svgz",
-      "svgBytes": 1199,
-      "svgzBytes": 501
+      "svgBytes": 1196,
+      "svgzBytes": 497
     },
     {
       "file": "24-essay-outline-block.svg",
@@ -216,8 +216,8 @@
       "desc": "An essay outline block with thesis and arguments.",
       "svgPath": "public/generated/svg/24-essay-outline-block.svg",
       "svgzPath": "public/generated/svgz/24-essay-outline-block.svgz",
-      "svgBytes": 1254,
-      "svgzBytes": 491
+      "svgBytes": 1251,
+      "svgzBytes": 488
     },
     {
       "file": "25-callout-block.svg",
@@ -225,8 +225,8 @@
       "desc": "A highlighted callout note block.",
       "svgPath": "public/generated/svg/25-callout-block.svg",
       "svgzPath": "public/generated/svgz/25-callout-block.svgz",
-      "svgBytes": 1161,
-      "svgzBytes": 488
+      "svgBytes": 1158,
+      "svgzBytes": 485
     },
     {
       "file": "26-export-html.svg",
@@ -234,7 +234,7 @@
       "desc": "HTML export badge: a document with a leaf-vein corner and the HTML format label.",
       "svgPath": "public/generated/svg/26-export-html.svg",
       "svgzPath": "public/generated/svgz/26-export-html.svgz",
-      "svgBytes": 1085,
+      "svgBytes": 1082,
       "svgzBytes": 552
     },
     {
@@ -243,7 +243,7 @@
       "desc": "Markdown export badge: a document with a leaf-vein corner and the MD format label.",
       "svgPath": "public/generated/svg/27-export-markdown.svg",
       "svgzPath": "public/generated/svgz/27-export-markdown.svgz",
-      "svgBytes": 1097,
+      "svgBytes": 1094,
       "svgzBytes": 556
     },
     {
@@ -252,7 +252,7 @@
       "desc": "JSON export badge: a document with a leaf-vein corner and the JSON format label.",
       "svgPath": "public/generated/svg/28-export-json.svg",
       "svgzPath": "public/generated/svgz/28-export-json.svgz",
-      "svgBytes": 1085,
+      "svgBytes": 1082,
       "svgzBytes": 555
     },
     {
@@ -261,7 +261,7 @@
       "desc": "SVG export badge: a document with a leaf-vein corner and the SVG format label.",
       "svgPath": "public/generated/svg/29-export-svg.svg",
       "svgzPath": "public/generated/svgz/29-export-svg.svgz",
-      "svgBytes": 1079,
+      "svgBytes": 1076,
       "svgzBytes": 551
     },
     {
@@ -270,7 +270,7 @@
       "desc": "SVGZ export badge: a document with a leaf-vein corner and the SVGZ format label.",
       "svgPath": "public/generated/svg/30-export-svgz.svg",
       "svgzPath": "public/generated/svgz/30-export-svgz.svgz",
-      "svgBytes": 1085,
+      "svgBytes": 1082,
       "svgzBytes": 555
     },
     {
@@ -279,7 +279,7 @@
       "desc": "PNG export badge: a document with a leaf-vein corner and the PNG format label.",
       "svgPath": "public/generated/svg/31-export-png.svg",
       "svgzPath": "public/generated/svgz/31-export-png.svgz",
-      "svgBytes": 1079,
+      "svgBytes": 1076,
       "svgzBytes": 551
     },
     {
@@ -288,7 +288,7 @@
       "desc": "Video export badge: a document with a leaf-vein corner and the VIDEO format label.",
       "svgPath": "public/generated/svg/32-export-video.svg",
       "svgzPath": "public/generated/svgz/32-export-video.svgz",
-      "svgBytes": 1091,
+      "svgBytes": 1088,
       "svgzBytes": 558
     },
     {
@@ -297,8 +297,8 @@
       "desc": "An empty clearing with a single seedling, shown when the gallery has no Snaps.",
       "svgPath": "public/generated/svg/33-empty-gallery.svg",
       "svgzPath": "public/generated/svgz/33-empty-gallery.svgz",
-      "svgBytes": 1169,
-      "svgzBytes": 514
+      "svgBytes": 1166,
+      "svgzBytes": 511
     },
     {
       "file": "34-file-import.svg",
@@ -306,8 +306,8 @@
       "desc": "A document dropping into an open import tray with a leaf accent.",
       "svgPath": "public/generated/svg/34-file-import.svg",
       "svgzPath": "public/generated/svgz/34-file-import.svgz",
-      "svgBytes": 886,
-      "svgzBytes": 423
+      "svgBytes": 883,
+      "svgzBytes": 419
     },
     {
       "file": "35-local-first.svg",
@@ -315,8 +315,8 @@
       "desc": "A house-shaped shield with a leaf inside, signalling all data stays on the device.",
       "svgPath": "public/generated/svg/35-local-first.svg",
       "svgzPath": "public/generated/svgz/35-local-first.svgz",
-      "svgBytes": 837,
-      "svgzBytes": 527
+      "svgBytes": 834,
+      "svgzBytes": 526
     },
     {
       "file": "36-editor-layout.svg",
@@ -324,8 +324,8 @@
       "desc": "The three-pane SpecSnap editor: block list, live preview, inspector.",
       "svgPath": "public/generated/svg/36-editor-layout.svg",
       "svgzPath": "public/generated/svgz/36-editor-layout.svgz",
-      "svgBytes": 1198,
-      "svgzBytes": 422
+      "svgBytes": 1195,
+      "svgzBytes": 418
     },
     {
       "file": "37-poster-frame.svg",
@@ -333,8 +333,8 @@
       "desc": "A portrait poster frame with title and key lines, used for poster exports.",
       "svgPath": "public/generated/svg/37-poster-frame.svg",
       "svgzPath": "public/generated/svgz/37-poster-frame.svgz",
-      "svgBytes": 1173,
-      "svgzBytes": 514
+      "svgBytes": 1170,
+      "svgzBytes": 512
     },
     {
       "file": "38-leaf-vein-divider.svg",
@@ -342,8 +342,8 @@
       "desc": "A horizontal divider drawn like the midrib and veins of a leaf.",
       "svgPath": "public/generated/svg/38-leaf-vein-divider.svg",
       "svgzPath": "public/generated/svgz/38-leaf-vein-divider.svgz",
-      "svgBytes": 648,
-      "svgzBytes": 343
+      "svgBytes": 645,
+      "svgzBytes": 344
     },
     {
       "file": "39-topographic-grid.svg",
@@ -351,8 +351,8 @@
       "desc": "Layered topographic contour lines fused with a faint grid, a background motif.",
       "svgPath": "public/generated/svg/39-topographic-grid.svg",
       "svgzPath": "public/generated/svgz/39-topographic-grid.svgz",
-      "svgBytes": 1047,
-      "svgzBytes": 393
+      "svgBytes": 1044,
+      "svgzBytes": 389
     },
     {
       "file": "40-loading-seed.svg",
@@ -360,8 +360,8 @@
       "desc": "A seed sprouting between soil lines, used for loading states.",
       "svgPath": "public/generated/svg/40-loading-seed.svg",
       "svgzPath": "public/generated/svgz/40-loading-seed.svgz",
-      "svgBytes": 983,
-      "svgzBytes": 483
+      "svgBytes": 980,
+      "svgzBytes": 482
     }
   ]
 }

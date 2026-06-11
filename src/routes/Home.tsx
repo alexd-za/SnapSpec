@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { Suspense, lazy, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -10,6 +10,9 @@ import { useMotionPref } from '../lib/hooks/useMotionPref'
 import { Reveal, RevealInView, WordRise } from '../components/motion/Reveal'
 import { SnapPreview } from '../components/gallery/SnapPreview'
 import { Frond } from '../components/nature/Frond'
+import { FloatingChips } from '../components/nature/FloatingChips'
+
+const Hero3D = lazy(() => import('../components/nature/Hero3D'))
 
 const MESSY_NOTE = `photosynthesis?? check defn
 chlorophyll = green pigment, absorbs light
@@ -151,6 +154,13 @@ export function Home() {
 
         {/* The desk: note pinned over the living page, drifting on scroll */}
         <div className="relative lg:col-span-6">
+          {animate && (
+            <div className="pointer-events-none absolute -inset-x-16 -top-20 bottom-0 -z-10 hidden lg:block">
+              <Suspense fallback={null}>
+                <Hero3D />
+              </Suspense>
+            </div>
+          )}
           <Reveal delay={0.25}>
             <motion.div
               style={animate ? { y: deskY } : undefined}
@@ -163,6 +173,7 @@ export function Home() {
                 <Frond className="h-56 w-32 opacity-30 sm:h-64" />
               </motion.div>
               <SnapPreview template={demoTemplate} maxBlocks={3} />
+              <FloatingChips />
               <FieldNote>
                 <span className="pin" aria-hidden />
                 <pre className="whitespace-pre-wrap font-mono text-[10px] leading-[1.65] text-ink/85 sm:text-[10.5px]">

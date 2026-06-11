@@ -1,11 +1,14 @@
 import { useMotionPref } from '../../lib/hooks/useMotionPref'
 
 const LEAVES = [
-  { left: '8%', size: 14, duration: 34, delay: 0 },
-  { left: '22%', size: 10, duration: 46, delay: 9 },
-  { left: '47%', size: 12, duration: 40, delay: 18 },
-  { left: '68%', size: 9, duration: 52, delay: 4 },
-  { left: '84%', size: 13, duration: 38, delay: 24 },
+  { left: '6%', size: 14, duration: 34, delay: 0 },
+  { left: '18%', size: 10, duration: 46, delay: 9 },
+  { left: '31%', size: 12, duration: 41, delay: 18 },
+  { left: '44%', size: 9, duration: 52, delay: 4 },
+  { left: '58%', size: 13, duration: 38, delay: 24 },
+  { left: '71%', size: 10, duration: 44, delay: 14 },
+  { left: '83%', size: 12, duration: 36, delay: 29 },
+  { left: '93%', size: 9, duration: 50, delay: 7 },
 ]
 
 /**

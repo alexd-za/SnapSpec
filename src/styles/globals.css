@@ -6,70 +6,70 @@
 
 /* ---------------------------------------------------------------------------
    SpecSnap — one living canvas.
-   A single dark botanical gradient behind everything; content floats on it.
+   White paper in living light: one continuous luminous backdrop; content floats on it.
    No borders-as-seams: sections separate by light, scale, and space.
    Five palettes switch via the data-accent attribute on <html>.
 --------------------------------------------------------------------------- */
 
 :root,
 [data-accent='forest'] {
-  /* Forest (default): deep canopy, luminous fern */
-  --sn-bg: #0d1a12;
-  --sn-bg-2: #122418;
-  --sn-surface: #18281d;
-  --sn-text: #edf3e8;
-  --sn-muted: #9db3a0;
-  --sn-accent: #6cc287;
-  --sn-glow: #2e5c3c;
-  color-scheme: dark;
+  /* Forest (default): white paper, fern ink */
+  --sn-bg: #fbfaf6;
+  --sn-bg-2: #f2f1e9;
+  --sn-surface: #ffffff;
+  --sn-text: #202c23;
+  --sn-muted: #6e7d6e;
+  --sn-accent: #3e7c4f;
+  --sn-glow: #dde9d6;
+  color-scheme: light;
 }
 
 [data-accent='mist'] {
-  /* Mist: dusk fog, river-blue light */
-  --sn-bg: #10171c;
-  --sn-bg-2: #152028;
-  --sn-surface: #1a2730;
-  --sn-text: #ecf1f4;
-  --sn-muted: #9fb2bd;
-  --sn-accent: #7cc1e4;
-  --sn-glow: #2c4d63;
-  color-scheme: dark;
+  /* Mist: cool white, river-blue ink */
+  --sn-bg: #f9fafb;
+  --sn-bg-2: #eef1f3;
+  --sn-surface: #ffffff;
+  --sn-text: #233038;
+  --sn-muted: #71818b;
+  --sn-accent: #38749b;
+  --sn-glow: #dbe7ee;
+  color-scheme: light;
 }
 
 [data-accent='sunlit'] {
-  /* Sunlit: late-evening amber woods */
-  --sn-bg: #1a1409;
-  --sn-bg-2: #241c0e;
-  --sn-surface: #2c2212;
-  --sn-text: #f5efe2;
-  --sn-muted: #bcab8d;
-  --sn-accent: #e3b04f;
-  --sn-glow: #6b5220;
-  color-scheme: dark;
+  /* Sunlit: warm white, honey ink */
+  --sn-bg: #fdfaf2;
+  --sn-bg-2: #f6f0e0;
+  --sn-surface: #ffffff;
+  --sn-text: #3a3122;
+  --sn-muted: #93846a;
+  --sn-accent: #a8730e;
+  --sn-glow: #f1e4c4;
+  color-scheme: light;
 }
 
 [data-accent='river'] {
-  /* River: deep water, glacial cyan */
-  --sn-bg: #0b151d;
-  --sn-bg-2: #101e29;
-  --sn-surface: #152532;
-  --sn-text: #e9f1f5;
-  --sn-muted: #92a9b6;
-  --sn-accent: #5fd0e0;
-  --sn-glow: #1f4a59;
-  color-scheme: dark;
+  /* River: glacial white, deep teal ink */
+  --sn-bg: #f7fafa;
+  --sn-bg-2: #e9f1f1;
+  --sn-surface: #ffffff;
+  --sn-text: #1e2e34;
+  --sn-muted: #698590;
+  --sn-accent: #1e7c8c;
+  --sn-glow: #d4e8ea;
+  color-scheme: light;
 }
 
 [data-accent='bloom'] {
-  /* Bloom: midnight garden, wildflower violet */
-  --sn-bg: #160f16;
-  --sn-bg-2: #1f1520;
-  --sn-surface: #281b29;
-  --sn-text: #f4edf2;
-  --sn-muted: #b3a0b0;
-  --sn-accent: #cd9aea;
-  --sn-glow: #553059;
-  color-scheme: dark;
+  /* Bloom: blossom white, wild-rose ink (no AI violet) */
+  --sn-bg: #fcf9f8;
+  --sn-bg-2: #f5ecea;
+  --sn-surface: #ffffff;
+  --sn-text: #322327;
+  --sn-muted: #92797e;
+  --sn-accent: #b04f63;
+  --sn-glow: #f2dcdf;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -154,10 +154,10 @@ h3 {
 .light-pocket {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(80px);
   background: radial-gradient(
     circle,
-    color-mix(in srgb, var(--sn-accent) 22%, transparent),
+    color-mix(in srgb, var(--sn-glow) 90%, var(--sn-accent)),
     transparent 70%
   );
   animation: drift 26s ease-in-out infinite alternate;
@@ -182,7 +182,7 @@ h3 {
 .leaf-drift {
   position: absolute;
   bottom: -8%;
-  color: color-mix(in srgb, var(--sn-accent) 55%, transparent);
+  color: color-mix(in srgb, var(--sn-accent) 70%, transparent);
   animation: leafRise linear infinite;
   opacity: 0;
 }
@@ -192,10 +192,10 @@ h3 {
     opacity: 0;
   }
   10% {
-    opacity: 0.35;
+    opacity: 0.5;
   }
   90% {
-    opacity: 0.25;
+    opacity: 0.35;
   }
   100% {
     transform: translateY(-110vh) rotate(220deg);
@@ -208,12 +208,10 @@ h3 {
    shadow + faint inner top-light. Never a visible outline. */
 
 .float-panel {
-  background: color-mix(in srgb, var(--sn-text) 5%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--sn-surface);
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--sn-text) 9%, transparent),
-    0 24px 48px -24px color-mix(in srgb, var(--sn-bg) 90%, #000);
+    0 1px 2px color-mix(in srgb, var(--sn-text) 6%, transparent),
+    0 12px 32px -16px color-mix(in srgb, var(--sn-text) 22%, transparent);
 }
 
 .float-lift {
@@ -224,19 +222,17 @@ h3 {
 }
 .float-lift:hover {
   transform: translateY(-3px);
-  background: color-mix(in srgb, var(--sn-text) 8%, transparent);
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent),
-    0 32px 64px -28px color-mix(in srgb, var(--sn-bg) 95%, #000);
+    0 2px 4px color-mix(in srgb, var(--sn-text) 7%, transparent),
+    0 22px 48px -18px color-mix(in srgb, var(--sn-text) 30%, transparent);
 }
 
 /* The messy-note scrap: a tinted breath of accent light. */
 .field-note {
-  background: color-mix(in srgb, var(--sn-accent) 13%, var(--sn-surface));
-  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--sn-accent) 9%, var(--sn-surface));
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent),
-    0 22px 40px -20px color-mix(in srgb, var(--sn-bg) 95%, #000);
+    0 1px 2px color-mix(in srgb, var(--sn-text) 10%, transparent),
+    0 16px 30px -14px color-mix(in srgb, var(--sn-text) 35%, transparent);
   border-radius: 4px 4px 10px 10px;
 }
 .pin {
@@ -258,23 +254,19 @@ h3 {
 
 /* Primary action: an organic luminous button, no hard edges. */
 .btn-organic {
-  background: var(--sn-accent);
+  background: var(--sn-text);
   color: var(--sn-bg);
   border-radius: 999px;
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 35%, transparent),
-    0 12px 32px -10px color-mix(in srgb, var(--sn-accent) 55%, transparent);
+  box-shadow: 0 10px 26px -10px color-mix(in srgb, var(--sn-text) 45%, transparent);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
-    filter 180ms ease;
+    background-color 180ms ease;
 }
 .btn-organic:hover:not(:disabled) {
   transform: translateY(-2px);
-  filter: brightness(1.07);
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 40%, transparent),
-    0 18px 40px -12px color-mix(in srgb, var(--sn-accent) 65%, transparent);
+  background: color-mix(in srgb, var(--sn-text) 88%, var(--sn-accent));
+  box-shadow: 0 16px 34px -12px color-mix(in srgb, var(--sn-text) 55%, transparent);
 }
 .btn-organic:active:not(:disabled) {
   transform: translateY(1px) scale(0.99);
@@ -419,7 +411,7 @@ h3 {
   border-radius: 50%;
   transform: translateX(-50%);
   background: var(--sn-accent);
-  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--sn-accent) 55%, transparent);
+  box-shadow: 0 0 8px 2px color-mix(in srgb, var(--sn-accent) 45%, transparent);
 }
 
 .flip-scene {

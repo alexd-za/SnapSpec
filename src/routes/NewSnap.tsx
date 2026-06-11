@@ -147,7 +147,7 @@ export function NewSnap() {
           )}
 
           {error && (
-            <p role="alert" className="mt-3 rounded-lg border border-red-400/40 bg-red-400/10 p-3 text-xs text-red-300">
+            <p role="alert" className="mt-3 rounded-lg bg-red-600/10 p-3 text-xs text-red-700">
               {error}
             </p>
           )}

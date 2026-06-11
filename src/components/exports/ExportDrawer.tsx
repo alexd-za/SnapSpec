@@ -87,7 +87,7 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
             </div>
 
             {error && (
-              <p className="mb-4 rounded-lg border border-red-400/40 bg-red-400/10 p-3 text-xs text-red-300">
+              <p className="mb-4 rounded-lg bg-red-600/10 p-3 text-xs text-red-700">
                 {error}
               </p>
             )}

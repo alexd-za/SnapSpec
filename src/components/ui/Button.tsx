@@ -11,7 +11,7 @@ const VARIANTS = {
   primary: 'btn-organic font-semibold',
   ghost: 'btn-ghost text-ink',
   outline: 'btn-ghost text-ink',
-  danger: 'rounded-full bg-red-400/15 text-red-300 transition-colors hover:bg-red-400/25',
+  danger: 'rounded-full bg-red-600/10 text-red-700 transition-colors hover:bg-red-600/20',
 }
 
 const SIZES = {
