@@ -13,11 +13,11 @@
 :root,
 [data-accent='forest'] {
   /* Forest: deep green ink on warm paper (default) */
-  --sn-bg: #ece5d3;
-  --sn-surface: #f6f2e6;
-  --sn-text: #1e2a1f;
-  --sn-muted: #66725f;
-  --sn-accent: #366f41;
+  --sn-bg: #f4f0e5;
+  --sn-surface: #fdfbf4;
+  --sn-text: #202b21;
+  --sn-muted: #67745f;
+  --sn-accent: #38784a;
   color-scheme: light;
 }
 
@@ -92,6 +92,22 @@ body {
     0 -1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent);
 }
 
+:root {
+  --shadow-paper:
+    0 1px 2px color-mix(in srgb, var(--sn-text) 7%, transparent),
+    0 10px 28px -14px color-mix(in srgb, var(--sn-text) 28%, transparent);
+  --shadow-paper-high:
+    0 2px 4px color-mix(in srgb, var(--sn-text) 8%, transparent),
+    0 18px 44px -16px color-mix(in srgb, var(--sn-text) 35%, transparent);
+}
+
+/* A sheet of good paper resting on the desk. */
+.sheet {
+  background: var(--sn-surface);
+  border: 1px solid color-mix(in srgb, var(--sn-text) 10%, transparent);
+  box-shadow: var(--shadow-paper);
+}
+
 /* Picking a sheet up off the desk. */
 .paper-lift {
   transition:
@@ -100,9 +116,7 @@ body {
 }
 .paper-lift:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 10px 24px -12px color-mix(in srgb, var(--sn-text) 35%, transparent),
-    3px 4px 0 0 color-mix(in srgb, var(--sn-text) 12%, transparent);
+  box-shadow: var(--shadow-paper-high);
 }
 
 /* Fraunces: lean on its optical sizing + a touch of softness */
@@ -144,9 +158,9 @@ h3 {
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0,
-    transparent 31px,
-    color-mix(in srgb, var(--sn-text) 5%, transparent) 31px,
-    color-mix(in srgb, var(--sn-text) 5%, transparent) 32px
+    transparent 43px,
+    color-mix(in srgb, var(--sn-text) 4%, transparent) 43px,
+    color-mix(in srgb, var(--sn-text) 4%, transparent) 44px
   );
 }
 
@@ -202,8 +216,10 @@ h3 {
    Positioning is left to utilities so `absolute` placements work. */
 .field-note {
   background: color-mix(in srgb, var(--sn-surface) 88%, var(--sn-accent));
-  border: 1px solid color-mix(in srgb, var(--sn-text) 25%, transparent);
-  box-shadow: 4px 6px 0 0 color-mix(in srgb, var(--sn-text) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sn-text) 18%, transparent);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--sn-text) 12%, transparent),
+    0 14px 22px -12px color-mix(in srgb, var(--sn-text) 45%, transparent);
   clip-path: polygon(
     0 0,
     100% 0,
@@ -223,17 +239,21 @@ h3 {
     0 98%
   );
 }
-.tape {
+.pin {
   position: absolute;
-  top: -10px;
+  top: -7px;
   left: 50%;
-  width: 84px;
-  height: 22px;
-  transform: translateX(-50%) rotate(-2deg);
-  background: color-mix(in srgb, var(--sn-accent) 22%, var(--sn-surface));
-  opacity: 0.85;
-  border-left: 1px dashed color-mix(in srgb, var(--sn-text) 25%, transparent);
-  border-right: 1px dashed color-mix(in srgb, var(--sn-text) 25%, transparent);
+  width: 14px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    color-mix(in srgb, var(--sn-surface) 70%, var(--sn-accent)),
+    var(--sn-accent) 60%,
+    color-mix(in srgb, var(--sn-text) 60%, var(--sn-accent))
+  );
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--sn-text) 40%, transparent);
 }
 
 /* Ink band: a full-width plate in the ink colour itself — same family, committed. */
@@ -328,6 +348,20 @@ h3 {
 @keyframes ticker {
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Fronds sway like a draught caught them. */
+.sway {
+  transform-origin: bottom center;
+  animation: sway 9s ease-in-out infinite alternate;
+}
+@keyframes sway {
+  from {
+    transform: rotate(-1.6deg);
+  }
+  to {
+    transform: rotate(1.8deg);
   }
 }
 

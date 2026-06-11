@@ -1,6 +1,6 @@
 {
   "app": "specsnap",
-  "generatedAt": "2026-06-10T15:19:45.338Z",
+  "generatedAt": "2026-06-11T09:23:32.295Z",
   "count": 40,
   "assets": [
     {
@@ -19,7 +19,7 @@
       "svgPath": "public/generated/svg/02-forest-theme.svg",
       "svgzPath": "public/generated/svgz/02-forest-theme.svgz",
       "svgBytes": 1020,
-      "svgzBytes": 471
+      "svgzBytes": 473
     },
     {
       "file": "03-mist-theme.svg",
@@ -46,7 +46,7 @@
       "svgPath": "public/generated/svg/05-river-theme.svg",
       "svgzPath": "public/generated/svgz/05-river-theme.svgz",
       "svgBytes": 1021,
-      "svgzBytes": 478
+      "svgzBytes": 479
     },
     {
       "file": "06-bloom-theme.svg",
@@ -55,7 +55,7 @@
       "svgPath": "public/generated/svg/06-bloom-theme.svg",
       "svgzPath": "public/generated/svgz/06-bloom-theme.svgz",
       "svgBytes": 1020,
-      "svgzBytes": 476
+      "svgzBytes": 477
     },
     {
       "file": "07-study-template.svg",
@@ -64,7 +64,7 @@
       "svgPath": "public/generated/svg/07-study-template.svg",
       "svgzPath": "public/generated/svgz/07-study-template.svgz",
       "svgBytes": 1760,
-      "svgzBytes": 515
+      "svgzBytes": 514
     },
     {
       "file": "08-poetry-template.svg",
@@ -73,7 +73,7 @@
       "svgPath": "public/generated/svg/08-poetry-template.svg",
       "svgzPath": "public/generated/svgz/08-poetry-template.svgz",
       "svgBytes": 1767,
-      "svgzBytes": 521
+      "svgzBytes": 519
     },
     {
       "file": "09-maths-template.svg",
@@ -82,7 +82,7 @@
       "svgPath": "public/generated/svg/09-maths-template.svg",
       "svgzPath": "public/generated/svgz/09-maths-template.svgz",
       "svgBytes": 1755,
-      "svgzBytes": 510
+      "svgzBytes": 509
     },
     {
       "file": "10-product-template.svg",
@@ -91,7 +91,7 @@
       "svgPath": "public/generated/svg/10-product-template.svg",
       "svgzPath": "public/generated/svgz/10-product-template.svgz",
       "svgBytes": 1773,
-      "svgzBytes": 520
+      "svgzBytes": 519
     },
     {
       "file": "11-showcase-template.svg",
@@ -100,7 +100,7 @@
       "svgPath": "public/generated/svg/11-showcase-template.svg",
       "svgzPath": "public/generated/svgz/11-showcase-template.svgz",
       "svgBytes": 1768,
-      "svgzBytes": 516
+      "svgzBytes": 514
     },
     {
       "file": "12-cheatsheet-template.svg",
@@ -109,7 +109,7 @@
       "svgPath": "public/generated/svg/12-cheatsheet-template.svg",
       "svgzPath": "public/generated/svgz/12-cheatsheet-template.svgz",
       "svgBytes": 1772,
-      "svgzBytes": 515
+      "svgzBytes": 514
     },
     {
       "file": "13-heading-block.svg",
@@ -118,7 +118,7 @@
       "svgPath": "public/generated/svg/13-heading-block.svg",
       "svgzPath": "public/generated/svgz/13-heading-block.svgz",
       "svgBytes": 1062,
-      "svgzBytes": 461
+      "svgzBytes": 459
     },
     {
       "file": "14-summary-block.svg",
@@ -136,7 +136,7 @@
       "svgPath": "public/generated/svg/15-keypoints-block.svg",
       "svgzPath": "public/generated/svgz/15-keypoints-block.svgz",
       "svgBytes": 1221,
-      "svgzBytes": 478
+      "svgzBytes": 479
     },
     {
       "file": "16-definition-block.svg",
@@ -145,7 +145,7 @@
       "svgPath": "public/generated/svg/16-definition-block.svg",
       "svgzPath": "public/generated/svgz/16-definition-block.svgz",
       "svgBytes": 1136,
-      "svgzBytes": 455
+      "svgzBytes": 454
     },
     {
       "file": "17-formula-block.svg",
@@ -154,7 +154,7 @@
       "svgPath": "public/generated/svg/17-formula-block.svg",
       "svgzPath": "public/generated/svgz/17-formula-block.svgz",
       "svgBytes": 1133,
-      "svgzBytes": 473
+      "svgzBytes": 474
     },
     {
       "file": "18-quote-block.svg",
@@ -163,7 +163,7 @@
       "svgPath": "public/generated/svg/18-quote-block.svg",
       "svgzPath": "public/generated/svgz/18-quote-block.svgz",
       "svgBytes": 1165,
-      "svgzBytes": 499
+      "svgzBytes": 500
     },
     {
       "file": "19-comparison-block.svg",
@@ -172,7 +172,7 @@
       "svgPath": "public/generated/svg/19-comparison-block.svg",
       "svgzPath": "public/generated/svgz/19-comparison-block.svgz",
       "svgBytes": 1470,
-      "svgzBytes": 478
+      "svgzBytes": 479
     },
     {
       "file": "20-timeline-block.svg",
@@ -217,7 +217,7 @@
       "svgPath": "public/generated/svg/24-essay-outline-block.svg",
       "svgzPath": "public/generated/svgz/24-essay-outline-block.svgz",
       "svgBytes": 1254,
-      "svgzBytes": 490
+      "svgzBytes": 491
     },
     {
       "file": "25-callout-block.svg",
@@ -226,7 +226,7 @@
       "svgPath": "public/generated/svg/25-callout-block.svg",
       "svgzPath": "public/generated/svgz/25-callout-block.svgz",
       "svgBytes": 1161,
-      "svgzBytes": 487
+      "svgzBytes": 488
     },
     {
       "file": "26-export-html.svg",
@@ -244,7 +244,7 @@
       "svgPath": "public/generated/svg/27-export-markdown.svg",
       "svgzPath": "public/generated/svgz/27-export-markdown.svgz",
       "svgBytes": 1097,
-      "svgzBytes": 557
+      "svgzBytes": 558
     },
     {
       "file": "28-export-json.svg",
@@ -253,7 +253,7 @@
       "svgPath": "public/generated/svg/28-export-json.svg",
       "svgzPath": "public/generated/svgz/28-export-json.svgz",
       "svgBytes": 1085,
-      "svgzBytes": 556
+      "svgzBytes": 557
     },
     {
       "file": "29-export-svg.svg",
@@ -271,7 +271,7 @@
       "svgPath": "public/generated/svg/30-export-svgz.svg",
       "svgzPath": "public/generated/svgz/30-export-svgz.svgz",
       "svgBytes": 1085,
-      "svgzBytes": 556
+      "svgzBytes": 557
     },
     {
       "file": "31-export-png.svg",
@@ -307,7 +307,7 @@
       "svgPath": "public/generated/svg/34-file-import.svg",
       "svgzPath": "public/generated/svgz/34-file-import.svgz",
       "svgBytes": 886,
-      "svgzBytes": 423
+      "svgzBytes": 422
     },
     {
       "file": "35-local-first.svg",
@@ -325,7 +325,7 @@
       "svgPath": "public/generated/svg/36-editor-layout.svg",
       "svgzPath": "public/generated/svgz/36-editor-layout.svgz",
       "svgBytes": 1198,
-      "svgzBytes": 420
+      "svgzBytes": 422
     },
     {
       "file": "37-poster-frame.svg",
@@ -343,7 +343,7 @@
       "svgPath": "public/generated/svg/38-leaf-vein-divider.svg",
       "svgzPath": "public/generated/svgz/38-leaf-vein-divider.svgz",
       "svgBytes": 648,
-      "svgzBytes": 345
+      "svgzBytes": 344
     },
     {
       "file": "39-topographic-grid.svg",
@@ -352,7 +352,7 @@
       "svgPath": "public/generated/svg/39-topographic-grid.svg",
       "svgzPath": "public/generated/svgz/39-topographic-grid.svgz",
       "svgBytes": 1047,
-      "svgzBytes": 393
+      "svgzBytes": 394
     },
     {
       "file": "40-loading-seed.svg",
@@ -361,7 +361,7 @@
       "svgPath": "public/generated/svg/40-loading-seed.svg",
       "svgzPath": "public/generated/svgz/40-loading-seed.svgz",
       "svgBytes": 983,
-      "svgzBytes": 483
+      "svgzBytes": 484
     }
   ]
 }

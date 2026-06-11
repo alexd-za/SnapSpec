@@ -10,6 +10,7 @@ import { useMotionPref } from '../lib/hooks/useMotionPref'
 import { Reveal, RevealInView, WordRise } from '../components/motion/Reveal'
 import { SnapPreview } from '../components/gallery/SnapPreview'
 import { TornEdge } from '../components/nature/TornEdge'
+import { Frond } from '../components/nature/Frond'
 
 const MESSY_NOTE = `photosynthesis?? check defn
 chlorophyll = green pigment, absorbs light
@@ -30,35 +31,6 @@ const TICKER_ITEMS = [
   'svgz at 59% smaller',
   'your notes never left the desk',
 ]
-
-/** Hand-drawn arrow that inks itself from the note to the pressed page. */
-function HandArrow({ className = '' }: { className?: string }) {
-  const animate = useMotionPref()
-  return (
-    <svg viewBox="0 0 120 90" className={className} aria-hidden="true" fill="none">
-      <motion.path
-        d="M8 10 C 30 40, 50 68, 102 70"
-        stroke="var(--sn-accent)"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeDasharray="1 7"
-        initial={animate ? { pathLength: 0 } : false}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 0.9, delay: 1.15, ease: 'easeInOut' }}
-      />
-      <motion.path
-        d="M88 60 L 104 70 L 86 78"
-        stroke="var(--sn-accent)"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={animate ? { pathLength: 0, opacity: 0 } : false}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 2.0, ease: 'easeOut' }}
-      />
-    </svg>
-  )
-}
 
 /** The underline beneath the headline's accent words, drawn like a pen stroke. */
 function InkUnderline() {
@@ -90,7 +62,7 @@ function FieldNote({ children }: { children: React.ReactNode }) {
   if (!animate) {
     return (
       <figure
-        className="field-note absolute -top-6 left-1 w-36 -rotate-3 p-3 pb-6 sm:-left-24 sm:-top-16 sm:w-48 sm:-rotate-6 sm:p-4 sm:pb-7"
+        className="field-note absolute -top-8 left-2 w-40 -rotate-3 p-3 pb-5 sm:-left-16 sm:-top-10 sm:w-48 sm:-rotate-[4deg] sm:p-4 sm:pb-6"
         aria-label="A messy original note, before parsing"
       >
         {children}
@@ -99,12 +71,12 @@ function FieldNote({ children }: { children: React.ReactNode }) {
   }
   return (
     <motion.figure
-      className="field-note absolute -top-6 left-1 w-36 p-3 pb-6 sm:-left-24 sm:-top-16 sm:w-48 sm:p-4 sm:pb-7"
+      className="field-note absolute -top-8 left-2 w-40 p-3 pb-5 sm:-left-16 sm:-top-10 sm:w-48 sm:p-4 sm:pb-6"
       aria-label="A messy original note, before parsing"
       initial={{ y: -56, opacity: 0, rotate: -12 }}
-      animate={{ y: 0, opacity: 1, rotate: -6 }}
+      animate={{ y: 0, opacity: 1, rotate: -4 }}
       transition={{ type: 'spring', stiffness: 120, damping: 13, mass: 0.9, delay: 0.55 }}
-      whileHover={{ rotate: -3, scale: 1.02 }}
+      whileHover={{ rotate: -1.5, scale: 1.02 }}
     >
       {children}
     </motion.figure>
@@ -171,23 +143,18 @@ export function Home() {
         {/* The desk: torn note landing on the pressed page */}
         <div className="relative lg:col-span-6">
           <Reveal delay={0.25}>
-            <div className="relative ml-auto mt-12 max-w-md sm:mt-24 lg:mr-2 lg:mt-20">
+            <div className="relative ml-auto mt-12 max-w-md sm:mt-24 lg:mr-2 lg:mt-16">
+              <Frond className="absolute -right-10 -top-24 h-56 w-32 opacity-25 sm:-right-16 sm:h-64" />
               <SnapPreview template={demoTemplate} maxBlocks={3} />
               <FieldNote>
-                <span className="tape" aria-hidden />
-                <pre className="whitespace-pre-wrap font-mono text-[10.5px] leading-[1.7] text-ink/85">
+                <span className="pin" aria-hidden />
+                <pre className="whitespace-pre-wrap font-mono text-[10px] leading-[1.65] text-ink/85 sm:text-[10.5px]">
                   {MESSY_NOTE}
                 </pre>
+                <figcaption className="annotation mt-2 text-[13px] text-accent!">
+                  ↓ pressed flat, in your browser
+                </figcaption>
               </FieldNote>
-              <HandArrow className="absolute -top-6 left-36 hidden h-20 w-24 rotate-12 sm:block" />
-              <motion.figcaption
-                className="annotation absolute -top-14 right-0 hidden max-w-44 text-right text-sm sm:block"
-                initial={animate ? { opacity: 0 } : false}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.1, duration: 0.5 }}
-              >
-                the parser presses it flat, in your browser
-              </motion.figcaption>
             </div>
           </Reveal>
           <div
@@ -266,7 +233,7 @@ export function Home() {
       </section>
 
       {/* Method: margin-annotated rows */}
-      <section className="py-14" aria-labelledby="how-heading">
+      <section className="py-16 sm:py-20" aria-labelledby="how-heading">
         <RevealInView>
           <h2 id="how-heading" className="annotation text-lg">
             the method, in three movements
@@ -311,7 +278,7 @@ export function Home() {
       </section>
 
       {/* Template index: an actual index, not a card grid */}
-      <section className="py-10" aria-labelledby="templates-heading">
+      <section className="py-16 sm:py-20" aria-labelledby="templates-heading">
         <RevealInView>
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h2 id="templates-heading" className="letterpress font-serif text-4xl tracking-[-0.01em]">
@@ -348,7 +315,7 @@ export function Home() {
       </section>
 
       {/* Inks */}
-      <section className="py-12" aria-labelledby="palettes-heading">
+      <section className="py-16 sm:py-20" aria-labelledby="palettes-heading">
         <RevealInView>
           <h2 id="palettes-heading" className="letterpress font-serif text-4xl tracking-[-0.01em]">
             Five inks
@@ -403,6 +370,7 @@ export function Home() {
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 90, damping: 12 }}
             />
+            <Frond flip className="pointer-events-none absolute -bottom-10 -left-6 h-48 w-28 opacity-15" />
             <p className="annotation text-base">checked out to: you, indefinitely</p>
             <h2 className="mt-2 max-w-xl font-serif text-4xl tracking-[-0.01em] sm:text-5xl">
               Your notes never leave this device.

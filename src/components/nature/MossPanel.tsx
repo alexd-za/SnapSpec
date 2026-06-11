@@ -5,14 +5,12 @@ type MossPanelProps = HTMLAttributes<HTMLDivElement> & {
   glass?: boolean
 }
 
-/** The standard SpecSnap surface: a paper card with a hairline ink border. */
+/** The standard SpecSnap surface: a sheet of good paper with a soft shadow. */
 export function MossPanel({ children, glass = false, className = '', ...rest }: MossPanelProps) {
   return (
     <div
       {...rest}
-      className={`paper-grain rounded-md border border-ink/15 ${
-        glass ? 'bg-surface/80 backdrop-blur-md' : 'bg-surface'
-      } ${className}`}
+      className={`paper-grain sheet rounded-lg ${glass ? 'bg-surface/85 backdrop-blur-md' : ''} ${className}`}
     >
       {children}
     </div>
