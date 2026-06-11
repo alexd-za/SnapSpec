@@ -89,7 +89,7 @@ export function Gallery() {
           aria-modal="true"
           aria-label="Confirm deletion"
         >
-          <div className="w-full max-w-sm rounded-2xl border border-mist/25 bg-surface p-6">
+          <div className="paper-grain w-full max-w-sm rounded-md border border-ink/25 bg-surface p-6 shadow-[6px_8px_0_0_color-mix(in_srgb,var(--sn-text)_25%,transparent)]">
             <h2 className="font-serif text-lg">Delete “{confirmDelete.title}”?</h2>
             <p className="mt-2 text-sm text-mist">
               This removes the Snap from local storage. There is no undo.
@@ -97,7 +97,7 @@ export function Gallery() {
             <div className="mt-5 flex justify-end gap-2">
               <button
                 onClick={() => setConfirmDelete(null)}
-                className="cursor-pointer rounded-xl border border-mist/30 px-4 py-2 text-sm transition-colors hover:border-mist/60"
+                className="stamp cursor-pointer rounded-sm bg-surface px-4 py-2 text-sm"
               >
                 Keep it
               </button>
@@ -106,7 +106,7 @@ export function Gallery() {
                   deleteProject(confirmDelete.id)
                   setConfirmDelete(null)
                 }}
-                className="cursor-pointer rounded-xl bg-red-400/90 px-4 py-2 text-sm font-semibold text-bg transition-colors hover:bg-red-400"
+                className="cursor-pointer rounded-sm border border-red-800/60 bg-red-700/90 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700"
               >
                 Delete
               </button>

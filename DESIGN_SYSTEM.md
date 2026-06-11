@@ -35,6 +35,14 @@ Tailwind tokens: `bg`, `surface`, `ink` (text), `mist` (muted), `accent` — map
 - `.paper-grain` — 5% noise on `MossPanel` surfaces.
 - Topographic contours remain in generated assets and diagrams; branch-curve edges in `DiagramCanvas`/ConceptMapBloom.
 
+## Paper toolkit (v5)
+
+- `.letterpress` — big serif headings pressed into the paper (dual text-shadow).
+- `.paper-lift` — sheets lift off the desk on hover (translate + warm tinted shadow); gallery cards also straighten from their pinned ±0.4° rest rotation.
+- `TornEdge` — irregular torn-paper SVG strip bridging paper sections into the ink band (top and flipped bottom).
+- `NatureBackground` — ruled notebook lines + desk-lamp light from the top-left + soft edge vignette; `body { overflow-x: clip }` guards full-bleed sections.
+- The intro plays on the same ruled paper.
+
 ## Components
 
 - **Buttons** are stamps: `.stamp` = square-ish corners, 1px ink border, hard `3px 3px 0` offset shadow; hover lifts to 4px, press flattens to 1px. Primary = accent fill with `text-surface`; outline = paper fill. No glows.

@@ -25,7 +25,7 @@ export function AppShell() {
       {/* Masthead: journal-style rule with serif wordmark and mono nav */}
       <header className="sticky top-0 z-40 border-b border-ink/20 bg-bg/90 backdrop-blur-sm">
         <nav
-          className="mx-auto flex max-w-6xl items-baseline gap-1 px-4 pb-2.5 pt-3"
+          className="mx-auto flex max-w-6xl items-baseline gap-0.5 px-3 pb-2.5 pt-3 sm:gap-1 sm:px-4"
           aria-label="Main navigation"
         >
           <NavLink
@@ -40,7 +40,7 @@ export function AppShell() {
             >
               <LogoMark size={22} />
             </motion.span>
-            <span className="font-serif text-lg font-semibold tracking-tight">SpecSnap</span>
+            <span className="hidden font-serif text-lg font-semibold tracking-tight min-[440px]:inline">SpecSnap</span>
             <span className="annotation mb-0.5 hidden self-end text-xs md:inline">
               a field guide for messy notes
             </span>
@@ -51,7 +51,7 @@ export function AppShell() {
               to={to}
               end={end}
               className={({ isActive }) =>
-                `px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors sm:px-2.5 ${
+                `whitespace-nowrap px-1.5 py-1 font-mono text-[10px] uppercase tracking-[0.08em] transition-colors sm:px-2.5 sm:text-[11px] sm:tracking-[0.14em] ${
                   isActive ? 'squiggle-active text-accent' : 'text-mist hover:text-ink'
                 }`
               }

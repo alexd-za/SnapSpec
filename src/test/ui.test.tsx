@@ -127,7 +127,7 @@ describe('Editor', () => {
     // Select the summary block from the sidebar and edit it.
     const blockNav = screen.getByRole('navigation', { name: /blocks/i })
     await user.click(within(blockNav).getByText(/at a glance/i))
-    const textarea = await screen.findByRole('textbox', { name: 'Summary' })
+    const textarea = await screen.findByRole('textbox', { name: /^summary$/i })
     await user.clear(textarea)
     await user.type(textarea, 'A fresh edited summary.')
     const stored = useSnapStore.getState().projects[0].blocks.find((b) => b.type === 'summary')

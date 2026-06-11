@@ -81,6 +81,28 @@ body {
   @apply bg-bg text-ink font-sans antialiased;
   min-height: 100dvh;
   font-size: 15px;
+  /* full-bleed sections must never cause a horizontal scrollbar */
+  overflow-x: clip;
+}
+
+/* Letterpress: big serif headings look pressed into the paper. */
+.letterpress {
+  text-shadow:
+    0 1px 0 color-mix(in srgb, var(--sn-surface) 70%, transparent),
+    0 -1px 0 color-mix(in srgb, var(--sn-text) 12%, transparent);
+}
+
+/* Picking a sheet up off the desk. */
+.paper-lift {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+.paper-lift:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 24px -12px color-mix(in srgb, var(--sn-text) 35%, transparent),
+    3px 4px 0 0 color-mix(in srgb, var(--sn-text) 12%, transparent);
 }
 
 /* Fraunces: lean on its optical sizing + a touch of softness */

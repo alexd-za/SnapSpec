@@ -8,16 +8,14 @@ type InspectorProps = {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-mist">
-        {label}
-      </span>
+      <span className="annotation mb-1 block text-sm">{label.toLowerCase()}</span>
       {children}
     </label>
   )
 }
 
 const inputCls =
-  'w-full rounded-lg border border-mist/25 bg-bg/60 px-3 py-2 text-sm text-ink placeholder:text-mist/60 focus:border-accent/60'
+  'w-full rounded-sm border border-ink/20 bg-bg/60 px-3 py-2 text-sm text-ink placeholder:text-mist/60 focus:border-accent'
 
 function TextInput({
   value,
@@ -69,8 +67,8 @@ const lines = (v: string) => v.split('\n').map((l) => l.trim()).filter(Boolean)
 export function BlockInspector({ block, onChange }: InspectorProps) {
   if (!block) {
     return (
-      <div className="rounded-xl border border-dashed border-mist/25 p-6 text-center text-xs text-mist">
-        Select a block to edit it here.
+      <div className="rounded-sm border border-dashed border-ink/25 p-6 text-center">
+        <p className="annotation text-sm">select a block to edit it here</p>
       </div>
     )
   }

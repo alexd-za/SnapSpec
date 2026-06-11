@@ -9,6 +9,7 @@ import { useSnapStore } from '../lib/storage/store'
 import { useMotionPref } from '../lib/hooks/useMotionPref'
 import { Reveal, RevealInView, WordRise } from '../components/motion/Reveal'
 import { SnapPreview } from '../components/gallery/SnapPreview'
+import { TornEdge } from '../components/nature/TornEdge'
 
 const MESSY_NOTE = `photosynthesis?? check defn
 chlorophyll = green pigment, absorbs light
@@ -89,7 +90,7 @@ function FieldNote({ children }: { children: React.ReactNode }) {
   if (!animate) {
     return (
       <figure
-        className="field-note absolute -left-4 -top-16 w-48 -rotate-6 p-4 pb-7 sm:-left-24"
+        className="field-note absolute -top-6 left-1 w-36 -rotate-3 p-3 pb-6 sm:-left-24 sm:-top-16 sm:w-48 sm:-rotate-6 sm:p-4 sm:pb-7"
         aria-label="A messy original note, before parsing"
       >
         {children}
@@ -98,9 +99,9 @@ function FieldNote({ children }: { children: React.ReactNode }) {
   }
   return (
     <motion.figure
-      className="field-note absolute -left-4 -top-16 w-48 p-4 pb-7 sm:-left-24"
+      className="field-note absolute -top-6 left-1 w-36 p-3 pb-6 sm:-left-24 sm:-top-16 sm:w-48 sm:p-4 sm:pb-7"
       aria-label="A messy original note, before parsing"
-      initial={{ y: -56, opacity: 0, rotate: -14 }}
+      initial={{ y: -56, opacity: 0, rotate: -12 }}
       animate={{ y: 0, opacity: 1, rotate: -6 }}
       transition={{ type: 'spring', stiffness: 120, damping: 13, mass: 0.9, delay: 0.55 }}
       whileHover={{ rotate: -3, scale: 1.02 }}
@@ -125,7 +126,7 @@ export function Home() {
               a field guide for messy thinkers · local-first · no accounts · no cloud
             </p>
           </Reveal>
-          <h1 className="mt-4 font-serif text-[2.9rem] font-medium leading-[1.02] tracking-[-0.02em] sm:text-7xl">
+          <h1 className="letterpress mt-4 font-serif text-[2.6rem] font-medium leading-[1.04] tracking-[-0.02em] sm:text-7xl sm:leading-[1.02]">
             <WordRise text="Turn messy notes into" delay={0.15} />{' '}
             <span className="relative inline-block text-accent">
               <em style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 80" }}>
@@ -170,7 +171,7 @@ export function Home() {
         {/* The desk: torn note landing on the pressed page */}
         <div className="relative lg:col-span-6">
           <Reveal delay={0.25}>
-            <div className="relative ml-auto mt-10 max-w-md lg:mr-2">
+            <div className="relative ml-auto mt-12 max-w-md sm:mt-24 lg:mr-2 lg:mt-20">
               <SnapPreview template={demoTemplate} maxBlocks={3} />
               <FieldNote>
                 <span className="tape" aria-hidden />
@@ -178,9 +179,9 @@ export function Home() {
                   {MESSY_NOTE}
                 </pre>
               </FieldNote>
-              <HandArrow className="absolute -top-6 left-40 h-20 w-24 rotate-12 sm:left-36" />
+              <HandArrow className="absolute -top-6 left-36 hidden h-20 w-24 rotate-12 sm:block" />
               <motion.figcaption
-                className="annotation absolute -top-12 right-0 max-w-40 text-right text-sm"
+                className="annotation absolute -top-14 right-0 hidden max-w-44 text-right text-sm sm:block"
                 initial={animate ? { opacity: 0 } : false}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.1, duration: 0.5 }}
@@ -240,7 +241,9 @@ export function Home() {
       </div>
 
       {/* Manifesto: a committed ink plate, same family as the paper */}
-      <section className="ink-band -mx-4 mt-14 px-4 py-16 sm:-mx-[max(1rem,calc((100vw-72rem)/2+1rem))] sm:px-[max(1rem,calc((100vw-72rem)/2+1rem))]">
+      <section className="relative left-1/2 mt-14 w-screen -translate-x-1/2">
+        <TornEdge className="relative z-10 -mb-px" />
+        <div className="ink-band px-4 py-14 sm:px-[max(1rem,calc((100vw-72rem)/2+1rem))]">
         <div className="mx-auto grid max-w-6xl items-center gap-8 sm:grid-cols-12">
           <RevealInView className="sm:col-span-8">
             <p className="font-serif text-3xl leading-snug sm:text-4xl">
@@ -258,6 +261,8 @@ export function Home() {
             </p>
           </RevealInView>
         </div>
+        </div>
+        <TornEdge flip className="relative z-10 -mt-px" />
       </section>
 
       {/* Method: margin-annotated rows */}
@@ -309,7 +314,7 @@ export function Home() {
       <section className="py-10" aria-labelledby="templates-heading">
         <RevealInView>
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 id="templates-heading" className="font-serif text-4xl tracking-[-0.01em]">
+            <h2 id="templates-heading" className="letterpress font-serif text-4xl tracking-[-0.01em]">
               Index of templates
             </h2>
             <span className="annotation text-base">six ways to press a page</span>
@@ -345,7 +350,7 @@ export function Home() {
       {/* Inks */}
       <section className="py-12" aria-labelledby="palettes-heading">
         <RevealInView>
-          <h2 id="palettes-heading" className="font-serif text-4xl tracking-[-0.01em]">
+          <h2 id="palettes-heading" className="letterpress font-serif text-4xl tracking-[-0.01em]">
             Five inks
           </h2>
           <p className="annotation mt-1 text-base">
@@ -388,7 +393,7 @@ export function Home() {
       {/* Closing: the library pocket */}
       <section className="mb-6 mt-8">
         <RevealInView>
-          <div className="paper-grain relative overflow-hidden rounded-md border border-ink/20 bg-surface px-7 py-12 sm:px-12">
+          <div className="paper-grain paper-lift relative overflow-hidden rounded-md border border-ink/20 bg-surface px-7 py-12 sm:px-12">
             <motion.img
               src="/generated/svg/35-local-first.svg"
               alt=""

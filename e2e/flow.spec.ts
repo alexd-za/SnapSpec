@@ -29,7 +29,7 @@ test.describe('SpecSnap full flow', () => {
 
     // 6. Edit a block via the inspector.
     await page.getByRole('navigation', { name: /blocks/i }).getByText(/at a glance/i).click()
-    const summaryField = page.getByRole('textbox', { name: 'Summary' })
+    const summaryField = page.getByRole('textbox', { name: /^summary$/i })
     await summaryField.fill('An edited summary written during the E2E test.')
     await expect(page.locator('section', { hasText: 'At a glance' }).first()).toContainText(
       'edited summary written during the E2E test',

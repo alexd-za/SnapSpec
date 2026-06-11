@@ -64,7 +64,7 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
             aria-label="Close export drawer"
           />
           <motion.aside
-            className="fixed bottom-0 right-0 top-0 z-50 w-full max-w-sm overflow-y-auto border-l border-mist/20 bg-surface p-6 shadow-2xl"
+            className="paper-grain fixed bottom-0 right-0 top-0 z-50 w-full max-w-sm overflow-y-auto border-l border-ink/20 bg-surface p-6 shadow-[-12px_0_30px_-18px_color-mix(in_srgb,var(--sn-text)_50%,transparent)]"
             initial={animate ? { x: '100%' } : { x: 0 }}
             animate={{ x: 0 }}
             exit={animate ? { x: '100%' } : undefined}
@@ -74,13 +74,13 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
           >
             <div className="mb-5 flex items-center justify-between">
               <div>
-                <h2 className="font-serif text-xl">Export</h2>
-                <p className="text-xs text-mist">“{project.title}”</p>
+                <h2 className="letterpress font-serif text-2xl">Press this page</h2>
+                <p className="annotation text-sm">“{project.title}”</p>
               </div>
               <button
                 onClick={onClose}
                 aria-label="Close"
-                className="cursor-pointer rounded-lg p-2 text-mist transition-colors hover:bg-mist/10 hover:text-ink"
+                className="cursor-pointer rounded-sm p-2 text-mist transition-colors hover:bg-ink/8 hover:text-ink"
               >
                 <X size={18} aria-hidden />
               </button>
@@ -98,7 +98,7 @@ export function ExportDrawer({ project, open, onClose, onExported }: ExportDrawe
                   <button
                     onClick={() => run(format)}
                     disabled={busy !== null}
-                    className="flex w-full cursor-pointer items-start gap-3 rounded-xl border border-mist/20 bg-bg/50 p-3.5 text-left transition-colors hover:border-accent/50 disabled:opacity-50"
+                    className="paper-lift flex w-full cursor-pointer items-start gap-3 rounded-sm border border-ink/15 bg-bg/50 p-3.5 text-left transition-colors hover:border-accent disabled:opacity-50"
                   >
                     <span className="mt-0.5 text-accent">
                       <Icon size={18} aria-hidden />

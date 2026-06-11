@@ -23,8 +23,9 @@ export function GalleryCard({ project, index, onQuickExport, onDelete }: Gallery
       initial={animate ? { opacity: 0, y: 16 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.5) }}
-      whileHover={animate ? { y: -3 } : undefined}
-      className="paper-grain flex flex-col rounded-md border border-ink/15 bg-surface p-5 transition-colors hover:border-ink/40"
+      whileHover={animate ? { y: -4, rotate: 0 } : undefined}
+      className="paper-grain paper-lift flex flex-col rounded-md border border-ink/15 bg-surface p-5 transition-colors hover:border-ink/40"
+      style={{ rotate: index % 3 === 0 ? '-0.4deg' : index % 3 === 1 ? '0.35deg' : '0deg' }}
     >
       <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-mist">
         <span>No. {String(index + 1).padStart(3, '0')}</span>
